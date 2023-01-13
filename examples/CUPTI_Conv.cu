@@ -239,7 +239,7 @@ free(C);
 
 int main()  
 {
-freopen(path_0,"w",stdout);
+// freopen(path_0,"w",stdout);
 
 
 
@@ -255,6 +255,6 @@ for(int j=0;j<counter1;j++)
 
 
   
-fclose(stdout);
+// fclose(stdout);
 return 0;
 }
