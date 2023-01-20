@@ -7,7 +7,7 @@ CXXARGS += -Xcompiler -DNDEBUG
 LIBS = -lcuda -L$(CUPTI_PATH)/lib64 -lcupti
 
 
-conv : CUPTI_Conv100.cu
+conv_100 : CUPTI_Conv100.cu
 	nvcc $(CXXARGS) $(INCLUDES) $(LIBS) CUPTI_Conv100.cu -o conv
 
 clean: 
