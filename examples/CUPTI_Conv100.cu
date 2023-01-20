@@ -206,24 +206,26 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
 CUcontext context;
 cuCtxCreate(&context, 0, 0);
 
-cudaSetDevice(0);
-for(int j=0;j<counter1;j++)
+for(int i = 0; i< 7; i++)
 {
-  cupti_profiler::profiler *p= new cupti_profiler::profiler(event_names, metric_names, context);
-  struct timeval ts,te;
-  p->start();
-  gettimeofday(&ts,NULL);
-  
-  compute();
-  p->stop();
-  gettimeofday(&te,NULL);
+  cudaSetDevice(i);
+  for(int j=0;j<100;j++)
+  {
+    cupti_profiler::profiler *p= new cupti_profiler::profiler(event_names, metric_names, context);
+    struct timeval ts,te;
+    p->start();
+    gettimeofday(&ts,NULL);
+    
+    compute();
+    p->stop();
+    gettimeofday(&te,NULL);
 
-  p->print_event_values(std::cout,ts,te);
-  p->print_metric_values(std::cout,ts,te);
+    p->print_event_values(std::cout,ts,te);
+    p->print_metric_values(std::cout,ts,te);
 
-  free(p);
+    free(p);
+  }
 }
-
 
 
   
