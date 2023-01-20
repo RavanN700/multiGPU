@@ -206,7 +206,7 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
 CUcontext context;
 cuCtxCreate(&context, 0, 0);
 
-
+cudaSetDevice(0);
 for(int j=0;j<counter1;j++)
 {
   cupti_profiler::profiler *p= new cupti_profiler::profiler(event_names, metric_names, context);
