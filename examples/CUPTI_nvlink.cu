@@ -60,15 +60,9 @@ __global__ void convolution(int *A, int *C)
 static void compute()
 {
 
-//Host variables
-int A[N+2][N+2] = {};//+2 for padding matrix
-int *C;
-
-//Device variables
-int *A_d = 0, *C_d = 0;
+int *A_d = 100, *C_d = 100;
 
 //Cuda Stream
-vector<cudaStream_t> stream(2);
 cudaStreamCreateWithFlags(&stream[0], cudaStreamNonBlocking);
 cudaStreamCreateWithFlags(&stream[1], cudaStreamNonBlocking);
 
@@ -78,24 +72,6 @@ int memorySize = (N + 2) * (N + 2);
 cudaEvent_t start, stop;
 cudaEventCreate(&start);
 cudaEventCreate(&stop);
-
-//Init matrix by 0
-for (int i = 0; i < N+2; i++) {
-    for (int j = 0; j < N+2; j++) {
-        A[i][j] = 0;
-    }
-}
-
-	//Generate random values between 0 and 9
-srand(time(NULL));
-for (int i = 0; i < N; i++) {
-  for (int j = 0; j < N; j++) {
-    A[i + 1][j + 1] = rand() % 10;
-  }
-}
-
-C = (int *)malloc(sizeof(*C)*memorySize);
-
 
 // device i
 cudaSetDevice(0);
@@ -110,15 +86,6 @@ cudaSetDevice(0);
 
 cudaMemcpyPeerAsync(A_d, 1, C_d, 0, sizeof(int) * memorySize, stream[0]);
 
-
-
-// cudaEventRecord(start);
-// convolution << <128, 128 >> >(A_d, C_d);//Block-thread
-// cudaEventRecord(stop);
-// cudaEventSynchronize(stop);
-
-//Copy from device to host
-// cudaMemcpy(C, C_d, sizeof(*C)*memorySize, cudaMemcpyDeviceToHost);
 
 
 //Free memory
