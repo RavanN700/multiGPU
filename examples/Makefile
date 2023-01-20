@@ -1,4 +1,4 @@
-all: conv_100
+all: conv_100 nvlink
 
 CUPTI_PATH=/usr/local/cuda/extras/CUPTI
 INCLUDES = -I ../include -I /usr/local/cuda/extras/CUPTI/include
@@ -10,5 +10,10 @@ LIBS = -lcuda -L$(CUPTI_PATH)/lib64 -lcupti
 conv_100 : CUPTI_Conv100.cu
 	nvcc $(CXXARGS) $(INCLUDES) $(LIBS) CUPTI_Conv100.cu -o conv
 
+nvlink : CUPTI_nvlink.cu
+	nvcc $(CXXARGS) $(INCLUDES) $(LIBS) CUPTI_nvlink.cu -o nvlink
+
+
+
 clean: 
-	rm -f *.o conv conv_100
+	rm -f *.o conv conv_100 nvlink
