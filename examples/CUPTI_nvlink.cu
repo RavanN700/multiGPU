@@ -18,6 +18,7 @@ const char *path_0 = "conv100.csv";
 #define C(i,j) C[(i)*cols+(j)]  // row-major layout
 #define PROFILE_ALL_EVENTS_METRICS 0
 int counter1 = 200000;
+using namespace std;
 
 __global__ void convolution(int *A, int *C)
 {
@@ -86,7 +87,7 @@ for (int i = 0; i < N+2; i++) {
     }
 }
 
-	//Generate random values between 0 and 9
+//Generate random values between 0 and 9
 srand(time(NULL));
 for (int i = 0; i < N; i++) {
   for (int j = 0; j < N; j++) {
@@ -96,6 +97,8 @@ for (int i = 0; i < N; i++) {
 
 C = (int *)malloc(sizeof(*C)*memorySize);
 
+//Copy from host to device
+cudaMemcpy(A_d, A, sizeof(*A_d)*memorySize, cudaMemcpyHostToDevice);
 
 // device i
 cudaSetDevice(0);
@@ -144,7 +147,6 @@ int main()
 {
 // freopen(path_0,"w",stdout);
 
-using namespace std;
 CUdevice device;
 
 DRIVER_API_CALL(cuInit(0));
