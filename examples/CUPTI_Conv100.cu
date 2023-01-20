@@ -127,7 +127,7 @@ free(C);
 
 int main()  
 {
-freopen(path_0,"w",stdout);
+// freopen(path_0,"w",stdout);
 
 using namespace std;
 CUdevice device;
@@ -185,10 +185,10 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
                     
   };
   vector<string> metric_names {
-                    "dram_read_transactions",
-                    "local_hit_rate",
-                    "dram_write_transactions",
-                    "inst_executed",
+                    // "dram_read_transactions",
+                    // "local_hit_rate",
+                    // "dram_write_transactions",
+                    // "inst_executed",
                     //"stall_memory_dependency",      //*This metrics will cause profiler to be very slow*//
                     //"stall_inst_fetch",            //*This metrics will cause profiler to be very slow*//
                     //"cf_issued",
@@ -196,6 +196,8 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
                     //"l2_write_transactions",
                     //"shared_store_transactions",
                     //"tex_cache_transactions",
+                    "nvlink_total_data_transmitted",
+                    "nvlink_total_data_received"
                     
   };
 
@@ -225,6 +227,6 @@ for(int j=0;j<counter1;j++)
 
 
   
-fclose(stdout);
+// fclose(stdout);
 return 0;
 }

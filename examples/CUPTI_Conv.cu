@@ -244,7 +244,7 @@ int main()
 
 
 
-for(int j=0;j<counter1;j++)
+for(int j=0;j<1000;j++)
 {
 
   
