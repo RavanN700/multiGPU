@@ -245,7 +245,7 @@
        }
     //    bandwidthMatrix[i * numGPUs + j] = gb / time_s;
     // Calculate szie of data write between
-    printf("Size of data transfer: %6d", gb);
+    printf("Size of data transfer: %6f", gb);
     printf("time passed: %6f", time_s);
     printf("time passed: %4f",gb / time_s);
     bandwidthMatrix[i * numGPUs + j] = gb / time_s; 
