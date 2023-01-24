@@ -102,7 +102,7 @@
  }
  
  
- static void compute()
+ void compute()
  {
      //Host variables
      int A[N+2][N+2] = {};//+2 for padding matrix
@@ -126,7 +126,7 @@
          }
  }
  
-     //Generate random values between 0 and 9
+//Generate random values between 0 and 9
  srand(time(NULL));
  for (int i = 0; i < N; i++) {
    for (int j = 0; j < N; j++) {
@@ -857,6 +857,8 @@ p->start();
 gettimeofday(&ts,NULL);
 outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
 compute();
+compute();
+compute();
 
 p->stop();
 gettimeofday(&te,NULL);
@@ -869,16 +871,18 @@ p->print_metric_values(std::cout,ts,te);
 
 for(int ctr = 0; ctr < 10; ctr++){
 
-    p->start();
-    gettimeofday(&ts,NULL);
+p->start();
+gettimeofday(&ts,NULL);
 outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
+compute();
+compute();
 compute();
 
 
 p->stop();
 gettimeofday(&te,NULL); 
 
-// p->print_event_values(std::cout,ts,te);
+p->print_event_values(std::cout,ts,te);
 p->print_metric_values(std::cout,ts,te);
 
 }

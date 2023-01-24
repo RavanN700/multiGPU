@@ -16,8 +16,6 @@ const char *path_0 = "conv100.csv";
 #define N 100 //Default matrix size NxN
 #define A(i,j) A[(i)*cols+(j)]  // row-major layout
 #define C(i,j) C[(i)*cols+(j)]  // row-major layout
-#define PROFILE_ALL_EVENTS_METRICS 0
-int counter1 = 200000;
 
 __global__ void convolution(int *A, int *C)
 {
