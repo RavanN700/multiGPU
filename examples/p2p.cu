@@ -804,11 +804,10 @@ gettimeofday(&ts,NULL);
 outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
 
 p->stop();
-gettimeofday(&te,NULL);
+gettimeofday(&te,NULL); 
 
 p->print_event_values(std::cout,ts,te);
 p->print_metric_values(std::cout,ts,te);
-// free(p);
 
 
    if (p2p_method == P2P_READ) {
