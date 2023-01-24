@@ -756,7 +756,7 @@ p->print_metric_values(std::cout,ts,te);
 
 p->start();
 gettimeofday(&ts,NULL);
-for(int ctr = 0; ctr < 50; ctr++){
+for(int ctr = 0; ctr < 500; ctr++){
 
 
 outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
