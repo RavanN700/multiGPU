@@ -856,6 +856,9 @@
 // p->start();
 // gettimeofday(&ts,NULL);
 outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
+outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
+outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
+
 // compute();
 // compute();
 // compute();
