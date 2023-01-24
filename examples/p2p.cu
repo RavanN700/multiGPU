@@ -690,11 +690,10 @@
      printf("\n");
    }
  
-   using namespace std;
    CUdevice device;
    
    DRIVER_API_CALL(cuInit(0));
-   DRIVER_API_CALL(cuDeviceGet(&device, 0));
+   DRIVER_API_CALL(cuDeviceGet(&device, 1));
    
    #if PROFILE_ALL_EVENTS_METRICS
      const auto event_names = cupt 
