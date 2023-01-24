@@ -147,7 +147,7 @@
  }
  
  void outputBandwidthMatrix(int numElems, int numGPUs, bool p2p, P2PDataTransfer p2p_method) {
-   int repeat = 1;
+   int repeat = 2;
    volatile int *flag = NULL;
    vector<int *> buffers(numGPUs);
    vector<int *> buffersD2D(numGPUs);  // buffer for D2D, that is, intra-GPU copy
