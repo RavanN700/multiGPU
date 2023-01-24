@@ -799,6 +799,11 @@ gettimeofday(&te,NULL);
 p->print_event_values(std::cout,ts,te);
 p->print_metric_values(std::cout,ts,te);
 
+
+
+
+for(int i; i< 10; i ++){
+
 p->start();
 gettimeofday(&ts,NULL);
 outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
@@ -809,7 +814,7 @@ gettimeofday(&te,NULL);
 p->print_event_values(std::cout,ts,te);
 p->print_metric_values(std::cout,ts,te);
 
-
+}
    if (p2p_method == P2P_READ) {
      printf("Unidirectional P2P=Enabled Bandwidth (P2P Reads) Matrix (GB/s)\n");
      outputBandwidthMatrix(numElems, 2, true, p2p_method);
