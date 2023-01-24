@@ -621,8 +621,8 @@ namespace detail {
             s);
 
           if(print_names) s
-              << "," << ts.tv_sec*1000000 + ts.tv_usec
-              << "," << te.tv_sec*1000000 + te.tv_usec
+              // << "," << ts.tv_sec*1000000 + ts.tv_usec
+              // << "," << te.tv_sec*1000000 + te.tv_usec
               << "," << te.tv_sec*1000000 + te.tv_usec - ts.tv_sec*1000000 - ts.tv_usec
               << ") ";
           else s << "," << ts.tv_sec*1000000 + ts.tv_usec
