@@ -243,8 +243,11 @@
        if (i == j) {
          gb *= 2;  // must count both the read and the write here
        }
-       bandwidthMatrix[i * numGPUs + j] = gb / time_s;
-       if (p2p && access) {
+    //    bandwidthMatrix[i * numGPUs + j] = gb / time_s;
+    // Calculate szie of data write between peers
+    bandwidthMatrix[i * numGPUs + j] = gb(time_s); 
+
+    if (p2p && access) {
          cudaDeviceDisablePeerAccess(j);
          cudaSetDevice(j);
          cudaDeviceDisablePeerAccess(i);
