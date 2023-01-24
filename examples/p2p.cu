@@ -147,7 +147,7 @@
  }
  
  void outputBandwidthMatrix(int numElems, int numGPUs, bool p2p, P2PDataTransfer p2p_method) {
-   int repeat = 2;
+   int repeat = 1;
    volatile int *flag = NULL;
    vector<int *> buffers(numGPUs);
    vector<int *> buffersD2D(numGPUs);  // buffer for D2D, that is, intra-GPU copy
@@ -245,9 +245,9 @@
        }
     //    bandwidthMatrix[i * numGPUs + j] = gb / time_s;
     // Calculate szie of data write between
-    printf("Size of data transfer: %f\n", gb * (double)1e9);
-    printf("Time passed: %f\n", time_s);
-    printf("Bandwidth: %f\n",gb / time_s);
+    printf("Size of data transfer (bit): %f\n", gb * (double)1e9);
+    printf("Time passed(s): %f\n", time_s);
+    printf("Bandwidth (gb/s): %f\n",gb / time_s);
     bandwidthMatrix[i * numGPUs + j] = gb / time_s; 
 
     if (p2p && access) {
@@ -611,7 +611,7 @@
  }
  
  int main(int argc, char **argv) {
-   int numGPUs, numElems = 40000000;
+   int numGPUs, numElems = 20000000;  // 40Mb
    P2PDataTransfer p2p_method = P2P_WRITE;
  
    cudaGetDeviceCount(&numGPUs);
