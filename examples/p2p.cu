@@ -239,7 +239,7 @@
        cudaEventElapsedTime(&time_ms, start[i], stop[i]);
        double time_s = time_ms / 1e3;
  
-       double gb = numElems * sizeof(int) * repeat / (./double)1e9;
+       double gb = numElems * sizeof(int) * repeat / (double)1e9;
        if (i == j) {
          gb *= 2;  // must count both the read and the write here
        }
