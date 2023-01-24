@@ -177,10 +177,10 @@
  
    vector<double> bandwidthMatrix(numGPUs * numGPUs);
  
-   for (int i = 0; i < numGPUs; i++) {
+   for (int i = 0; i < 1; i++) {
      cudaSetDevice(i);
  
-     for (int j = 0; j < numGPUs; j++) {
+     for (int j = 0; j < 2; j++) {
        int access = 0;
        if (p2p) {
          cudaDeviceCanAccessPeer(&access, i, j);
@@ -321,10 +321,10 @@
  
    vector<double> bandwidthMatrix(numGPUs * numGPUs);
  
-   for (int i = 0; i < 1; i++) {
+   for (int i = 0; i < numGPUs; i++) {
      cudaSetDevice(i);
  
-     for (int j = 0; j < 2; j++) {
+     for (int j = 0; j < numGPUs; j++) {
        int access = 0;
        if (p2p) {
          cudaDeviceCanAccessPeer(&access, i, j);
