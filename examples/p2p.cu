@@ -791,7 +791,18 @@ cupti_profiler::profiler *p= new cupti_profiler::profiler(event_names, metric_na
 struct timeval ts,te;
 p->start();
 gettimeofday(&ts,NULL);
-   outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
+outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
+
+p->stop();
+gettimeofday(&te,NULL);
+
+p->print_event_values(std::cout,ts,te);
+p->print_metric_values(std::cout,ts,te);
+free(p);
+
+p->start();
+gettimeofday(&ts,NULL);
+outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
 
 p->stop();
 gettimeofday(&te,NULL);
