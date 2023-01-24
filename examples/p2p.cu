@@ -864,7 +864,7 @@
 // struct timeval ts,te;
 // p->start();
 // gettimeofday(&ts,NULL);
-outputBandwidthMatrix(10000000, 2, true, P2P_WRITE);
+outputBandwidthMatrix(1000000000, 2, true, P2P_WRITE);
 compute();
 
 // p->stop();
