@@ -690,58 +690,18 @@
      printf("\n");
    }
  
-   CUdevice device;
+//    CUdevice device;
    
-   DRIVER_API_CALL(cuInit(0));
-   DRIVER_API_CALL(cuDeviceGet(&device, 1));
+//    DRIVER_API_CALL(cuInit(0));
+//    DRIVER_API_CALL(cuDeviceGet(&device, 1));
    
    #if PROFILE_ALL_EVENTS_METRICS
      const auto event_names = cupt 
-     i_profiler::available_events(device);
-     const auto metric_names = cupti_profiler::available_metrics(device);
+    //  i_profiler::available_events(device);
+    //  const auto metric_names = cupti_profiler::available_metrics(device);
    #else
      vector<string> event_names {
-       //"elapsed_cycles_sm",
-   
-       // "active_warps",
-   
-       // "inst_issued0",
-   
-       // "inst_executed",
-   
-   
-       // "fb_subp0_read_sectors",
-       // "elapsed_cycles_pm",
-       //"l2_subp0_write_sector_misses",
-       //"l2_subp1_read_sector_misses",
-       //"branch",
-   
-       // "gld_inst_8bit",
-   
-       //"elapsed_cycles_sm",
-   
-       // "tex1_cache_sector_queries",
-   
-       // "l2_subp0_read_tex_sector_queries",
-   
-       // "l2_subp1_write_tex_sector_queries",
-     
-       // "active_warps",
-   
-       // "elapsed_cycles_sm",
-   
-       // "l2_subp1_write_sysmem_sector_queries",
-       // "l2_subp0_read_sysmem_sector_queries",
-   
-    
-       
-   
-       // "inst_executed",
-   
-       // "inst_issued0",
-   
-       // "branch",
-   
+  
                        
      };
      vector<string> metric_names {
