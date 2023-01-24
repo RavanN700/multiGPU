@@ -668,10 +668,10 @@
 //    printf("Unidirectional P2P=Disabled Bandwidth Matrix (GB/s)\n");
 //    outputBandwidthMatrix(numElems, numGPUs, false, P2P_WRITE);
    printf("Unidirectional P2P=Enabled Bandwidth (P2P Writes) Matrix (GB/s)\n");
-   outputBandwidthMatrix(numElems, numGPUs, true, P2P_WRITE);
+   outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
    if (p2p_method == P2P_READ) {
      printf("Unidirectional P2P=Enabled Bandwidth (P2P Reads) Matrix (GB/s)\n");
-     outputBandwidthMatrix(numElems, numGPUs, true, p2p_method);
+     outputBandwidthMatrix(numElems, 2, true, p2p_method);
    }
 //    printf("Bidirectional P2P=Disabled Bandwidth Matrix (GB/s)\n");
 //    outputBidirectionalBandwidthMatrix(numElems, numGPUs, false);
