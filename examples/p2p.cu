@@ -678,10 +678,104 @@
      printf("\n");
    }
  
+   using namespace std;
+   CUdevice device;
+   
+   DRIVER_API_CALL(cuInit(0));
+   DRIVER_API_CALL(cuDeviceGet(&device, 0));
+   
+   #if PROFILE_ALL_EVENTS_METRICS
+     const auto event_names = cupt 
+     i_profiler::available_events(device);
+     const auto metric_names = cupti_profiler::available_metrics(device);
+   #else
+     vector<string> event_names {
+       //"elapsed_cycles_sm",
+   
+       // "active_warps",
+   
+       // "inst_issued0",
+   
+       // "inst_executed",
+   
+   
+       // "fb_subp0_read_sectors",
+       // "elapsed_cycles_pm",
+       //"l2_subp0_write_sector_misses",
+       //"l2_subp1_read_sector_misses",
+       //"branch",
+   
+       // "gld_inst_8bit",
+   
+       //"elapsed_cycles_sm",
+   
+       // "tex1_cache_sector_queries",
+   
+       // "l2_subp0_read_tex_sector_queries",
+   
+       // "l2_subp1_write_tex_sector_queries",
+     
+       // "active_warps",
+   
+       // "elapsed_cycles_sm",
+   
+       // "l2_subp1_write_sysmem_sector_queries",
+       // "l2_subp0_read_sysmem_sector_queries",
+   
+    
+       
+   
+       // "inst_executed",
+   
+       // "inst_issued0",
+   
+       // "branch",
+   
+                       
+     };
+     vector<string> metric_names {
+                       // "dram_read_transactions",
+                       // "local_hit_rate",
+                       // "dram_write_transactions",
+                       // "inst_executed",
+                       //"stall_memory_dependency",      //*This metrics will cause profiler to be very slow*//
+                       //"stall_inst_fetch",            //*This metrics will cause profiler to be very slow*//
+                       //"cf_issued",
+                       //"tex_fu_utilization",
+                       //"l2_write_transactions",
+                       //"shared_store_transactions",
+                       //"tex_cache_transactions",
+                       "nvlink_total_data_transmitted",
+                       "nvlink_total_data_received"
+                       
+     };
+
+  
+     #endif
+     CUcontext context;
+     cuCtxCreate(&context, 0, 0);
+
+
+
+
 //    printf("Unidirectional P2P=Disabled Bandwidth Matrix (GB/s)\n");
 //    outputBandwidthMatrix(numElems, numGPUs, false, P2P_WRITE);
    printf("Unidirectional P2P=Enabled Bandwidth (P2P Writes) Matrix (GB/s)\n");
+
+cupti_profiler::profiler *p= new cupti_profiler::profiler(event_names, metric_names, context);
+struct timeval ts,te;
+p->start();
+gettimeofday(&ts,NULL);
    outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
+
+p->stop();
+gettimeofday(&te,NULL);
+
+p->print_event_values(std::cout,ts,te);
+p->print_metric_values(std::cout,ts,te);
+free(p);
+
+
    if (p2p_method == P2P_READ) {
      printf("Unidirectional P2P=Enabled Bandwidth (P2P Reads) Matrix (GB/s)\n");
      outputBandwidthMatrix(numElems, 2, true, p2p_method);
