@@ -599,7 +599,7 @@ namespace detail {
     void print_metric_values(stream& s,
                             timeval ts,
                             timeval te,
-                             bool print_names=true,
+                             bool print_names=false,
                              const char* kernel_separator = "") {
       if(m_num_metrics <= 0)
         return;
@@ -625,8 +625,9 @@ namespace detail {
               // << "," << te.tv_sec*1000000 + te.tv_usec
               << "," << te.tv_sec*1000000 + te.tv_usec - ts.tv_sec*1000000 - ts.tv_usec
               << ") ";
-          else s << "," << ts.tv_sec*1000000 + ts.tv_usec
-                 << "," << te.tv_sec*1000000 + te.tv_usec 
+          else s 
+                //  << "," << ts.tv_sec*1000000 + ts.tv_usec
+                //  << "," << te.tv_sec*1000000 + te.tv_usec 
                  << "," << te.tv_sec*1000000 + te.tv_usec - ts.tv_sec*1000000 - ts.tv_usec
                  << ",";
         }
