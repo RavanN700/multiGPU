@@ -653,42 +653,42 @@
      numElems = getCmdLineArgumentInt(argc, (const char **)argv, "numElems");
    }
  
-   printf("[%s]\n", sSampleName);
+//    printf("[%s]\n", sSampleName);
  
-   // output devices
-   for (int i = 0; i < numGPUs; i++) {
-     cudaDeviceProp prop;
-     cudaGetDeviceProperties(&prop, i);
-     cudaCheckError();
-     printf("Device: %d, %s, pciBusID: %x, pciDeviceID: %x, pciDomainID:%x\n", i,
-            prop.name, prop.pciBusID, prop.pciDeviceID, prop.pciDomainID);
-   }
+//    // output devices
+//    for (int i = 0; i < numGPUs; i++) {
+//      cudaDeviceProp prop;
+//      cudaGetDeviceProperties(&prop, i);
+//      cudaCheckError();
+//      printf("Device: %d, %s, pciBusID: %x, pciDeviceID: %x, pciDomainID:%x\n", i,
+//             prop.name, prop.pciBusID, prop.pciDeviceID, prop.pciDomainID);
+//    }
  
-   checkP2Paccess(numGPUs);
+//    checkP2Paccess(numGPUs);
  
-   // Check peer-to-peer connectivity
-   printf("P2P Connectivity Matrix\n");
-   printf("     D\\D");
+//    // Check peer-to-peer connectivity
+//    printf("P2P Connectivity Matrix\n");
+//    printf("     D\\D");
  
-   for (int j = 0; j < numGPUs; j++) {
-     printf("%6d", j);
-   }
-   printf("\n");
+//    for (int j = 0; j < numGPUs; j++) {
+//      printf("%6d", j);
+//    }
+//    printf("\n");
  
-   for (int i = 0; i < numGPUs; i++) {
-     printf("%6d\t", i);
-     for (int j = 0; j < numGPUs; j++) {
-       if (i != j) {
-         int access;
-         cudaDeviceCanAccessPeer(&access, i, j);
-         cudaCheckError();
-         printf("%6d", (access) ? 1 : 0);
-       } else {
-         printf("%6d", 1);
-       }
-     }
-     printf("\n");
-   }
+//    for (int i = 0; i < numGPUs; i++) {
+//      printf("%6d\t", i);
+//      for (int j = 0; j < numGPUs; j++) {
+//        if (i != j) {
+//          int access;
+//          cudaDeviceCanAccessPeer(&access, i, j);
+//          cudaCheckError();
+//          printf("%6d", (access) ? 1 : 0);
+//        } else {
+//          printf("%6d", 1);
+//        }
+//      }
+//      printf("\n");
+//    }
  
 
    
@@ -754,13 +754,17 @@ p->print_metric_values(std::cout,ts,te);
 
 
 
-
+p->start();
+gettimeofday(&ts,NULL);
 for(int ctr = 0; ctr < 500; ctr++){
 
-    p->start();
-    gettimeofday(&ts,NULL);
+
 outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
 
+
+
+
+}
 p->stop();
 gettimeofday(&te,NULL); 
 
@@ -768,7 +772,7 @@ gettimeofday(&te,NULL);
 p->print_metric_values(std::cout,ts,te);
 
 
-}
+
    if (p2p_method == P2P_READ) {
      printf("Unidirectional P2P=Enabled Bandwidth (P2P Reads) Matrix (GB/s)\n");
      outputBandwidthMatrix(numElems, 2, true, p2p_method);
