@@ -628,7 +628,7 @@
  }
  
  int main(int argc, char **argv) {
-   int numGPUs, numElems = 40000000;  // 20Mb
+   int numGPUs, numElems = 1000;  // 20Mb
    P2PDataTransfer p2p_method = P2P_WRITE;
  
    cudaGetDeviceCount(&numGPUs);
