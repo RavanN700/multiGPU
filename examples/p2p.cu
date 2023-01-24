@@ -675,8 +675,8 @@
    }
 //    printf("Bidirectional P2P=Disabled Bandwidth Matrix (GB/s)\n");
 //    outputBidirectionalBandwidthMatrix(numElems, numGPUs, false);
-   printf("Bidirectional P2P=Enabled Bandwidth Matrix (GB/s)\n");
-   outputBidirectionalBandwidthMatrix(numElems, numGPUs, true);
+//    printf("Bidirectional P2P=Enabled Bandwidth Matrix (GB/s)\n");
+//    outputBidirectionalBandwidthMatrix(numElems, numGPUs, true);
  
 //    printf("P2P=Disabled Latency Matrix (us)\n");
 //    outputLatencyMatrix(numGPUs, false, P2P_WRITE);
