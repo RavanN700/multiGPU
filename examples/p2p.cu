@@ -147,7 +147,7 @@
  }
  
  void outputBandwidthMatrix(int numElems, int numGPUs, bool p2p, P2PDataTransfer p2p_method) {
-   int repeat = 5;
+   int repeat = 1;
    volatile int *flag = NULL;
    vector<int *> buffers(numGPUs);
    vector<int *> buffersD2D(numGPUs);  // buffer for D2D, that is, intra-GPU copy
@@ -219,6 +219,8 @@
          if (p2p_method == P2P_WRITE) {
            performP2PCopy(buffers[j], j, buffers[i], i, numElems, repeat, access,
                           stream[i]);
+                        //   j : destination device 
+                        //   i : source device
          } else {
            performP2PCopy(buffers[i], i, buffers[j], j, numElems, repeat, access,
                           stream[i]);
@@ -319,10 +321,10 @@
  
    vector<double> bandwidthMatrix(numGPUs * numGPUs);
  
-   for (int i = 0; i < numGPUs; i++) {
+   for (int i = 0; i < 1; i++) {
      cudaSetDevice(i);
  
-     for (int j = 0; j < numGPUs; j++) {
+     for (int j = 0; j < 2; j++) {
        int access = 0;
        if (p2p) {
          cudaDeviceCanAccessPeer(&access, i, j);
