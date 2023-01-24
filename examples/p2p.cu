@@ -865,7 +865,7 @@
 // p->start();
 // gettimeofday(&ts,NULL);
 outputBandwidthMatrix(10000, 2, true, P2P_WRITE);
-compute();
+// compute();
 
 // p->stop();
 // gettimeofday(&te,NULL);
@@ -876,11 +876,11 @@ compute();
 
 
 
-// for(int ctr = 0; ctr < 10; ctr++){
+for(int ctr = 0; ctr < 100000; ctr++){
 
 // p->start();
 // gettimeofday(&ts,NULL);
-// outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
+outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
 // compute();
 // compute();
 // compute();
@@ -892,7 +892,7 @@ compute();
 // p->print_event_values(std::cout,ts,te);
 // p->print_metric_values(std::cout,ts,te);
 
-// }
+}
 
 
 

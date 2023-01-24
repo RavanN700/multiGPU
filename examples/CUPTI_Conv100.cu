@@ -183,19 +183,31 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
                     
   };
   vector<string> metric_names {
-                    // "dram_read_transactions",
-                    // "local_hit_rate",
-                    // "dram_write_transactions",
-                    // "inst_executed",
-                    //"stall_memory_dependency",      //*This metrics will cause profiler to be very slow*//
-                    //"stall_inst_fetch",            //*This metrics will cause profiler to be very slow*//
-                    //"cf_issued",
-                    //"tex_fu_utilization",
-                    //"l2_write_transactions",
-                    //"shared_store_transactions",
-                    //"tex_cache_transactions",
-                    "nvlink_total_data_transmitted",
-                    "nvlink_total_data_received"
+    "nvlink_overhead_data_received",
+    "nvlink_overhead_data_transmitted",
+
+    "nvlink_receive_throughput",
+    "nvlink_transmit_throughput",
+
+    "nvlink_total_data_received",
+    "nvlink_total_data_transmitted",
+
+    // // "nvlink_total_nratom_data_transmitted",
+    // // "nvlink_total_ratom_data_transmitted",
+
+    // // "nvlink_total_response_data_received",
+    // // "nvlink_total_write_data_transmitted",
+
+    // "nvlink_user_data_rec smitted",
+
+    // "nvlink_user_nratom_data_transmitted",
+    // "nvlink_user_ratom_data_transmitted",
+
+    // "nvlink_user_response_data_received",
+    // "nvlink_user_write_data_transmitted",
+
+    // "pcie_total_data_received",
+    // "pcie_total_data_transmitted",
                     
   };
 
