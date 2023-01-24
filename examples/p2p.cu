@@ -802,7 +802,7 @@ p->print_metric_values(std::cout,ts,te);
 
 
 
-for(int i; i< 10; i ++){
+for(int ctr; ctr < 10; ctr++){
 
 p->start();
 gettimeofday(&ts,NULL);
