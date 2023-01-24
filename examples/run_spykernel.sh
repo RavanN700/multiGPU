@@ -1,2 +1,2 @@
-git pull && make clean && make 
+git pull && make clean && make && ./p2p
 

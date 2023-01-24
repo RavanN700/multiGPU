@@ -240,9 +240,9 @@
        double time_s = time_ms / 1e3;
  
        double gb = numElems * sizeof(int) * repeat / (double)1e9;
-       if (i == j) {
-         gb *= 2;  // must count both the read and the write here
-       }
+    //    if (i == j) {
+    //      gb *= 2;  // must count both the read and the write here
+    //    }
     //    bandwidthMatrix[i * numGPUs + j] = gb / time_s;
     // Calculate szie of data write between
     printf("Size of data transfer (bit): %f\n", gb * (double)1e9);
