@@ -2,7 +2,6 @@ all: conv_100 nvlink p2p
 
 CUPTI_PATH=/usr/local/cuda/extras/CUPTI
 INCLUDES = -I ../include -I /usr/local/cuda/extras/CUPTI/include -I ../Common
-INCLUDES  := -I../../../Common
 
 CXXARGS = -std=c++11 -g
 CXXARGS += -Xcompiler -DNDEBUG
