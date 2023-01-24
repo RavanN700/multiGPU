@@ -186,7 +186,7 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
     "nvlink_overhead_data_received",
     "nvlink_overhead_data_transmitted",
 
-    "nvlink_receive_throughput",
+    // "nvlink_receive_throughput",
     "nvlink_transmit_throughput",
 
     "nvlink_total_data_received",
