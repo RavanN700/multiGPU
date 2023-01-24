@@ -690,15 +690,10 @@
      printf("\n");
    }
  
-//    CUdevice device;
-   
-//    DRIVER_API_CALL(cuInit(0));
-//    DRIVER_API_CALL(cuDeviceGet(&device, 1));
+
    
    #if PROFILE_ALL_EVENTS_METRICS
      const auto event_names = cupt 
-    //  i_profiler::available_events(device);
-    //  const auto metric_names = cupti_profiler::available_metrics(device);
    #else
      vector<string> event_names {
   
@@ -714,8 +709,8 @@
         "nvlink_total_data_received",
         "nvlink_total_data_transmitted",
 
-        // "nvlink_total_nratom_data_transmitted",
-        // "nvlink_total_ratom_data_transmitted",
+        "nvlink_total_nratom_data_transmitted",
+        "nvlink_total_ratom_data_transmitted",
 
         // "nvlink_total_response_data_received",
         // "nvlink_total_write_data_transmitted",
