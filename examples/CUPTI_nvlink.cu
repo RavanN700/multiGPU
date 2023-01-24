@@ -213,7 +213,7 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
                     //"shared_store_transactions",
                     //"tex_cache_transactions",
                     "nvlink_total_data_transmitted",
-                    // "nvlink_total_data_received"
+                    "nvlink_total_data_received"
                     
   };
 
