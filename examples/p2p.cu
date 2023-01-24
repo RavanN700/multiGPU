@@ -740,17 +740,17 @@
 //    outputBandwidthMatrix(numElems, numGPUs, false, P2P_WRITE);
    printf("Unidirectional P2P=Enabled Bandwidth (P2P Writes) Matrix (GB/s)\n");
 
-// cupti_profiler::profiler *p= new cupti_profiler::profiler(event_names, metric_names, context);
-// struct timeval ts,te;
-// p->start();
-// gettimeofday(&ts,NULL);
-// outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
+cupti_profiler::profiler *p= new cupti_profiler::profiler(event_names, metric_names, context);
+struct timeval ts,te;
+p->start();
+gettimeofday(&ts,NULL);
+outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
 
-// p->stop();
-// gettimeofday(&te,NULL);
+p->stop();
+gettimeofday(&te,NULL);
 
-// p->print_event_values(std::cout,ts,te);
-// p->print_metric_values(std::cout,ts,te);
+p->print_event_values(std::cout,ts,te);
+p->print_metric_values(std::cout,ts,te);
 
 
 
