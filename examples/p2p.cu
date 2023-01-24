@@ -749,29 +749,29 @@
         "nvlink_overhead_data_received",
         "nvlink_overhead_data_transmitted",
 
-        "nvlink_receive_throughput",
-        "nvlink_transmit_throughput",
+        // "nvlink_receive_throughput",
+        // "nvlink_transmit_throughput",
 
-        "nvlink_total_data_received",
-        "nvlink_total_data_transmitted",
+        // "nvlink_total_data_received",
+        // "nvlink_total_data_transmitted",
 
-        "nvlink_total_nratom_data_transmitted",
-        "nvlink_total_ratom_data_transmitted",
+        // "nvlink_total_nratom_data_transmitted",
+        // "nvlink_total_ratom_data_transmitted",
 
-        "nvlink_total_response_data_received",
-        "nvlink_total_write_data_transmitted",
+        // "nvlink_total_response_data_received",
+        // "nvlink_total_write_data_transmitted",
 
-        "nvlink_user_data_received",
-        "nvlink_user_data_transmitted",
+        // "nvlink_user_data_received",
+        // "nvlink_user_data_transmitted",
 
-        "nvlink_user_nratom_data_transmitted",
-        "nvlink_user_ratom_data_transmitted",
+        // "nvlink_user_nratom_data_transmitted",
+        // "nvlink_user_ratom_data_transmitted",
 
-        "nvlink_user_response_data_received",
-        "nvlink_user_write_data_transmitted",
+        // "nvlink_user_response_data_received",
+        // "nvlink_user_write_data_transmitted",
 
-        "pcie_total_data_received",
-        "pcie_total_data_transmitted",
+        // "pcie_total_data_received",
+        // "pcie_total_data_transmitted",
                        
      };
 
