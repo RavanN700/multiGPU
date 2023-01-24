@@ -221,6 +221,11 @@
                           stream[i]);
                         //   j : destination device 
                         //   i : source device
+                        // void performP2PCopy(int *dest, int destDevice, int *src, int srcDevice,
+                    //  int num_elems, int repeat, bool p2paccess,
+                    //  cudaStream_t streamToRun) {
+                        //cudaMemcpyPeerAsync(dest, destDevice, src, srcDevice,
+                            // sizeof(int) * num_elems, streamToRun);
          } else {
            performP2PCopy(buffers[i], i, buffers[j], j, numElems, repeat, access,
                           stream[i]);
@@ -245,7 +250,7 @@
     //    }
     //    bandwidthMatrix[i * numGPUs + j] = gb / time_s;
     // Calculate szie of data write between
-    printf("Size of data transfer (bit): %f\n", gb * (double)1e9);
+    printf("Size of data transfer (bytes): %f\n", gb * (double)1e9);
     printf("Time passed(s): %f\n", time_s);
     printf("Bandwidth (gb/s): %f\n",gb / time_s);
     bandwidthMatrix[i * numGPUs + j] = gb / time_s; 
@@ -611,7 +616,7 @@
  }
  
  int main(int argc, char **argv) {
-   int numGPUs, numElems = 20000000;  // 40Mb
+   int numGPUs, numElems = 20000000;  // 20Mb
    P2PDataTransfer p2p_method = P2P_WRITE;
  
    cudaGetDeviceCount(&numGPUs);
