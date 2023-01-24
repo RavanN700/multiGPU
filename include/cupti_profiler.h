@@ -599,7 +599,7 @@ namespace detail {
     void print_metric_values(stream& s,
                             timeval ts,
                             timeval te,
-                             bool print_names=false,
+                             bool print_names=true,
                              const char* kernel_separator = "") {
       if(m_num_metrics <= 0)
         return;
