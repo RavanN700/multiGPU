@@ -116,12 +116,11 @@ cudaMemcpyPeerAsync(A_d, 1, C_d, 0, sizeof(int) * memorySize, stream[0]);
 
 
 // cudaEventRecord(start);
-// convolution << <128, 128 >> >(A_d, C_d);//Block-thread
-// cudaEventRecord(stop);
+convolution << <128, 128 >> >(A_d, C_d);//Block-thread
 // cudaEventSynchronize(stop);
 
 //Copy from device to host
-// cudaMemcpy(C, C_d, sizeof(*C)*memorySize, cudaMemcpyDeviceToHost);
+cudaMemcpy(C, C_d, sizeof(*C)*memorySize, cudaMemcpyDeviceToHost);
 
 
 //Free memory
@@ -214,7 +213,7 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
                     //"shared_store_transactions",
                     //"tex_cache_transactions",
                     "nvlink_total_data_transmitted",
-                    "nvlink_total_data_received"
+                    // "nvlink_total_data_received"
                     
   };
 
@@ -223,26 +222,24 @@ DRIVER_API_CALL(cuDeviceGet(&device, 0));
 CUcontext context;
 cuCtxCreate(&context, 0, 0);
 
-// for(int i = 0; i< 7; i++)
-// {
-//   cudaSetDevice(i);
-  for(int j=0;j<10000;j++)
-  {
-    cupti_profiler::profiler *p= new cupti_profiler::profiler(event_names, metric_names, context);
-    struct timeval ts,te;
-    p->start();
-    gettimeofday(&ts,NULL);
-    
-    compute();
-    p->stop();
-    gettimeofday(&te,NULL);
 
-    p->print_event_values(std::cout,ts,te);
-    p->print_metric_values(std::cout,ts,te);
+for(int j=0;j<10000;j++)
+{
+  cupti_profiler::profiler *p= new cupti_profiler::profiler(event_names, metric_names, context);
+  struct timeval ts,te;
+  p->start();
+  gettimeofday(&ts,NULL);
+  
+  compute();
+  p->stop();
+  gettimeofday(&te,NULL);
 
-    free(p);
-  }
-// }
+  // p->print_event_values(std::cout,ts,te);
+  p->print_metric_values(std::cout,ts,te);
+
+  free(p);
+}
+
 
 
   
