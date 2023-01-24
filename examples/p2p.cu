@@ -217,7 +217,7 @@
        // relatively low.  Higher repeatitions will cause the delay kernel
        // to timeout and lead to unstable results.
        *flag = 0;
-       delay<<<1, 1, 0, stream[i]>>>(flag);
+       delay<<<128, 128, 0, stream[i]>>>(flag);
        cudaCheckError();
        cudaEventRecord(start[i], stream[i]);
        cudaCheckError();
