@@ -239,15 +239,15 @@
        cudaEventElapsedTime(&time_ms, start[i], stop[i]);
        double time_s = time_ms / 1e3;
  
-       double gb = numElems * sizeof(int) * repeat / (double)1e9;
+       double gb = numElems * sizeof(int) * repeat / (./double)1e9;
        if (i == j) {
          gb *= 2;  // must count both the read and the write here
        }
     //    bandwidthMatrix[i * numGPUs + j] = gb / time_s;
     // Calculate szie of data write between
-    printf("Size of data transfer: %6f", gb);
-    printf("time passed: %6f", time_s);
-    printf("time passed: %4f",gb / time_s);
+    printf("Size of data transfer: %f\n", gb*(./double)1e9);
+    printf("Time passed: %f\n", time_s);
+    printf("Bandwidth: %f\n",gb / time_s);
     bandwidthMatrix[i * numGPUs + j] = gb / time_s; 
 
     if (p2p && access) {
