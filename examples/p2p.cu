@@ -665,21 +665,21 @@
      printf("\n");
    }
  
-   printf("Unidirectional P2P=Disabled Bandwidth Matrix (GB/s)\n");
-   outputBandwidthMatrix(numElems, numGPUs, false, P2P_WRITE);
+//    printf("Unidirectional P2P=Disabled Bandwidth Matrix (GB/s)\n");
+//    outputBandwidthMatrix(numElems, numGPUs, false, P2P_WRITE);
    printf("Unidirectional P2P=Enabled Bandwidth (P2P Writes) Matrix (GB/s)\n");
    outputBandwidthMatrix(numElems, numGPUs, true, P2P_WRITE);
    if (p2p_method == P2P_READ) {
      printf("Unidirectional P2P=Enabled Bandwidth (P2P Reads) Matrix (GB/s)\n");
      outputBandwidthMatrix(numElems, numGPUs, true, p2p_method);
    }
-   printf("Bidirectional P2P=Disabled Bandwidth Matrix (GB/s)\n");
-   outputBidirectionalBandwidthMatrix(numElems, numGPUs, false);
+//    printf("Bidirectional P2P=Disabled Bandwidth Matrix (GB/s)\n");
+//    outputBidirectionalBandwidthMatrix(numElems, numGPUs, false);
    printf("Bidirectional P2P=Enabled Bandwidth Matrix (GB/s)\n");
    outputBidirectionalBandwidthMatrix(numElems, numGPUs, true);
  
-   printf("P2P=Disabled Latency Matrix (us)\n");
-   outputLatencyMatrix(numGPUs, false, P2P_WRITE);
+//    printf("P2P=Disabled Latency Matrix (us)\n");
+//    outputLatencyMatrix(numGPUs, false, P2P_WRITE);
    printf("P2P=Enabled Latency (P2P Writes) Matrix (us)\n");
    outputLatencyMatrix(numGPUs, true, P2P_WRITE);
    if (p2p_method == P2P_READ) {
@@ -687,9 +687,9 @@
      outputLatencyMatrix(numGPUs, true, p2p_method);
    }
  
-   printf(
-       "\nNOTE: The CUDA Samples are not meant for performance measurements. "
-       "Results may vary when GPU Boost is enabled.\n");
+//    printf(
+//        "\nNOTE: The CUDA Samples are not meant for performance measurements. "
+//        "Results may vary when GPU Boost is enabled.\n");
  
    exit(EXIT_SUCCESS);
  }
