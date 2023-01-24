@@ -1,4 +1,4 @@
-all: conv_100 nvlink
+all: conv_100 nvlink p2p
 
 CUPTI_PATH=/usr/local/cuda/extras/CUPTI
 INCLUDES = -I ../include -I /usr/local/cuda/extras/CUPTI/include
@@ -13,7 +13,8 @@ conv_100 : CUPTI_Conv100.cu
 nvlink : CUPTI_nvlink.cu
 	nvcc $(CXXARGS) $(INCLUDES) $(LIBS) CUPTI_nvlink.cu -o nvlink
 
-
+p2p : p2p.cu	
+	nvcc $(CXXARGS) $(INCLUDES) $(LIBS) p2p.cu -o p2p
 
 clean: 
-	rm -f *.o conv conv_100 nvlink
+	rm -f *.o conv conv_100 nvlink p2p
