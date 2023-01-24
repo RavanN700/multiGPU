@@ -798,7 +798,6 @@ gettimeofday(&te,NULL);
 
 p->print_event_values(std::cout,ts,te);
 p->print_metric_values(std::cout,ts,te);
-free(p);
 
 p->start();
 gettimeofday(&ts,NULL);
@@ -809,7 +808,7 @@ gettimeofday(&te,NULL);
 
 p->print_event_values(std::cout,ts,te);
 p->print_metric_values(std::cout,ts,te);
-free(p);
+// free(p);
 
 
    if (p2p_method == P2P_READ) {
