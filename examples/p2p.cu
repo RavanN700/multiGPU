@@ -754,20 +754,21 @@
 
 
 
+p->start();
+gettimeofday(&ts,NULL);
+for(int ctr = 0; ctr < 10; ctr++){
 
-for(int ctr = 0; ctr < 1; ctr++){
 
-// p->start();
-// gettimeofday(&ts,NULL);
 outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
 
-// p->stop();
-// gettimeofday(&te,NULL); 
 
-// p->print_event_values(std::cout,ts,te);
-// p->print_metric_values(std::cout,ts,te);
 
 }
+p->stop();
+gettimeofday(&te,NULL); 
+
+p->print_event_values(std::cout,ts,te);
+p->print_metric_values(std::cout,ts,te);
    if (p2p_method == P2P_READ) {
      printf("Unidirectional P2P=Enabled Bandwidth (P2P Reads) Matrix (GB/s)\n");
      outputBandwidthMatrix(numElems, 2, true, p2p_method);
