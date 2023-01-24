@@ -621,12 +621,12 @@ namespace detail {
             s);
 
           if(print_names) s
-              << "," << ts.tv_sec + ts.tv_usec/1000000
-              << "," << te.tv_sec + te.tv_usec/1000000
+              << "," << ts.tv_sec*1000 + ts.tv_usec/1000
+              << "," << te.tv_sec*1000 + te.tv_usec/1000
               << ") ";
-          else s << "," << ts.tv_sec + ts.tv_usec/1000000
-                 << "," << te.tv_sec + te.tv_usec /1000000
-                 << "," << te.tv_sec + te.tv_usec /1000000- ts.tv_sec - ts.tv_usec/1000000
+          else s << "," << ts.tv_sec*1000 + ts.tv_usec/1000
+                 << "," << te.tv_sec*1000 + te.tv_usec /1000
+                 << "," << te.tv_sec*1000 + te.tv_usec /1000- ts.tv_sec*1000 - ts.tv_usec/1000
                  << ",";
         }
         s << kernel_separator;
