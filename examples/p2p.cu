@@ -244,8 +244,11 @@
          gb *= 2;  // must count both the read and the write here
        }
     //    bandwidthMatrix[i * numGPUs + j] = gb / time_s;
-    // Calculate szie of data write between peers
-    bandwidthMatrix[i * numGPUs + j] = gb(time_s); 
+    // Calculate szie of data write between
+    printf("Size of data transfer: %6d", gb);
+    printf("time passed: %6f", time_s);
+    printf("time passed: %4f",gb / time_s);
+    bandwidthMatrix[i * numGPUs + j] = gb / time_s; 
 
     if (p2p && access) {
          cudaDeviceDisablePeerAccess(j);
