@@ -30,6 +30,18 @@
  
  #include <helper_cuda.h>
  #include <helper_timer.h>
+ #include <cstdio>
+#include <string>
+#include <thrust/device_vector.h>
+#include <fstream>
+#include <cupti_profiler.h>
+#include <time.h>
+#include <sys/time.h>
+#include <unistd.h>
+#include <stdio.h>
+#include "cuda_runtime.h"
+#include "device_launch_parameters.h"
+#include <stdlib.h>
  
  using namespace std;
  
