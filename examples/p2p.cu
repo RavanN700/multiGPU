@@ -882,7 +882,7 @@
 
 
 
-for(int ctr = 0; ctr < 100000; ctr++){
+for(int ctr = 0; ctr < 1; ctr++){
 
 // p->start();
 // gettimeofday(&ts,NULL);
