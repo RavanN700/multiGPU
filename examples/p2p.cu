@@ -32,7 +32,7 @@ int main(int argc, char **argv) {
     printf("Please enter the source GPU: ");
     scanf("%d", &src);
     printf("\n");
-    printf("Please enter the detination GPU:"); 
+    printf("Please enter the detination GPU: "); 
     scanf("%d", &det);
     printf("\n");
     printf("Please enter the Number of Elements: ") ;
@@ -60,8 +60,8 @@ int main(int argc, char **argv) {
     // Copy data from src GPU to det GPU
     cudaSetDevice(src);
     cudaStreamSynchronize(stream[src]);
-    cudaMemcpyPeerAsync(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
-    // cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
+    // cudaMemcpyPeerAsync(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
+    cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
     cudaStreamSynchronize(stream[src]);
     
     // Stop profiler
