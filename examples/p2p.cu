@@ -58,14 +58,14 @@ int main(int argc, char **argv) {
     cudaProfilerStart(); 
 
     // Copy data from src GPU to det GPU
-    cudaSetDevice(src);
+    // cudaSetDevice(src);
     // cudaStreamSynchronize(stream[src]);
     // cudaMemcpyPeerAsync(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
     cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
     // cudaStreamSynchronize(stream[src]);
     
     // Stop profiler
-    cudaProfilerStop(); 
+    // cudaProfilerStop(); 
 
     double mb = memsize * sizeof(int) / (double)1e6;
     printf("Size of data transfer (MB): %f\n", mb);
