@@ -66,7 +66,7 @@ int main(int argc, char **argv) {
     
     // Stop profiler
     // cudaProfilerStop(); 
-    printf(buffers[det][0]);
+    printf("%d", buffers[det][0]);
     printf("\n");
     double mb = memsize * sizeof(int) / (double)1e6;
     printf("Size of data transfer (MB): %f\n", mb);
