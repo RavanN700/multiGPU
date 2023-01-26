@@ -882,11 +882,11 @@
 
 
 
-for(int ctr = 0; ctr < 1; ctr++){
+// for(int ctr = 0; ctr < 1; ctr++){
 
 // p->start();
 // gettimeofday(&ts,NULL);
-outputBandwidthMatrix(10000, 2, true, P2P_WRITE);
+outputBandwidthMatrix(100000, 2, true, P2P_WRITE);
 // compute();
 // compute();
 // compute();
@@ -898,7 +898,7 @@ outputBandwidthMatrix(10000, 2, true, P2P_WRITE);
 // p->print_event_values(std::cout,ts,te);
 // p->print_metric_values(std::cout,ts,te);
 
-}
+// }
 
 
 
