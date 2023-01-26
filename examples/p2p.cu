@@ -27,7 +27,7 @@
 
  #include <cstdio>
  #include <vector>
- 
+ #include <cuda_profiler_api.h> // For cudaProfilerStart() and cudaProfilerStop()
  #include <helper_cuda.h>
  #include <helper_timer.h>
  #include <cstdio>
@@ -332,7 +332,10 @@
        cudaCheckError();
        cudaEventRecord(start[i], stream[i]);
        cudaCheckError();
- 
+       
+       cudaProfilerStart(); // Start profiler // nvprof --profile-from-start off
+
+
        if (i == j) {
          // Perform intra-GPU, D2D copies
          performP2PCopy(buffers[i], i, buffersD2D[i], i, numElems, repeat,
@@ -354,7 +357,10 @@
                           stream[i]);
          }
        }
- 
+       cudaProfilerStop(); // Stop profiler
+
+
+
        cudaEventRecord(stop[i], stream[i]);
        cudaCheckError();
  
@@ -864,7 +870,7 @@
 // struct timeval ts,te;
 // p->start();
 // gettimeofday(&ts,NULL);
-outputBandwidthMatrix(1000000, 2, true, P2P_WRITE);
+// outputBandwidthMatrix(1000000, 2, true, P2P_WRITE);
 // compute();
 
 // p->stop();
@@ -880,7 +886,7 @@ for(int ctr = 0; ctr < 100000; ctr++){
 
 // p->start();
 // gettimeofday(&ts,NULL);
-outputBandwidthMatrix(numElems, 2, true, P2P_WRITE);
+outputBandwidthMatrix(10000, 2, true, P2P_WRITE);
 // compute();
 // compute();
 // compute();
