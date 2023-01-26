@@ -60,8 +60,8 @@ int main(int argc, char **argv) {
     // Copy data from src GPU to det GPU
     cudaSetDevice(src);
     cudaStreamSynchronize(stream[src]);
-    // cudaMemcpyPeerAsync(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
-    cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
+    cudaMemcpyPeerAsync(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
+    cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
     cudaStreamSynchronize(stream[src]);
     
     // Stop profiler
