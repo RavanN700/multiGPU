@@ -35,7 +35,7 @@ int main(int argc, char **argv) {
     printf("Please enter the detination GPU:"); 
     scanf("%d", &det);
     printf("\n");
-    printf("Please enter the Number of Elements: ") 
+    printf("Please enter the Number of Elements: ") ;
     scanf("%d", &memsize);
     printf("\n");
 
