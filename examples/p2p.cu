@@ -42,15 +42,15 @@ int main(int argc, char **argv) {
 
     // Initilize buffer for src and det GPU
     vector<int *> buffers(numGPUs);
-    vector<cudaStream_t> stream(numGPUs);
+    // vector<cudaStream_t> stream(numGPUs);
     // Src GPU
     cudaSetDevice(src);
-    cudaStreamCreateWithFlags(&stream[src], cudaStreamNonBlocking);
+    // cudaStreamCreateWithFlags(&stream[src], cudaStreamNonBlocking);
     cudaMalloc(&buffers[src], memsize * sizeof(int));
     cudaMemset(buffers[src], src, memsize * sizeof(int)); // Set buffer[src] to value src
     // Det GPU
     cudaSetDevice(det);
-    cudaStreamCreateWithFlags(&stream[det], cudaStreamNonBlocking);
+    // cudaStreamCreateWithFlags(&stream[det], cudaStreamNonBlocking);
     cudaMalloc(&buffers[det], memsize * sizeof(int));
     cudaMemset(buffers[det], det, memsize * sizeof(int)); // Set buffer[det] to value det
 
@@ -59,10 +59,10 @@ int main(int argc, char **argv) {
 
     // Copy data from src GPU to det GPU
     cudaSetDevice(src);
-    cudaStreamSynchronize(stream[src]);
-    cudaMemcpyPeerAsync(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
+    // cudaStreamSynchronize(stream[src]);
+    // cudaMemcpyPeerAsync(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
     cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
-    cudaStreamSynchronize(stream[src]);
+    // cudaStreamSynchronize(stream[src]);
     
     // Stop profiler
     cudaProfilerStop(); 
