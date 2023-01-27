@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
     cudaMalloc(&buffers[det], memsize * sizeof(int));
     cudaMemset(buffers[det], det, memsize * sizeof(int)); // Set buffer[det] to value det
 
-    cudaSetDevice(src);
+    // cudaSetDevice(src);
 
     // Start profiler // nvprof --profile-from-start off
     cudaProfilerStart(); 
