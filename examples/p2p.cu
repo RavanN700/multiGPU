@@ -79,6 +79,8 @@ int main(int argc, char **argv) {
     cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
     // cudaStreamSynchronize(stream[src]);
     
+    cudaSetDevice(src);
+    
     // Stop profiler
     cudaProfilerStop(); 
 
