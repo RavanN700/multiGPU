@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
     // cudaStreamSynchronize(stream[src]);
     
     // Stop profiler
-    // cudaProfilerStop(); 
+    cudaProfilerStop(); 
 
     double mb = memsize * sizeof(int) / (double)1e6;
     printf("Size of data transfer (MB): %f\n", mb);
