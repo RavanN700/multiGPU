@@ -50,13 +50,14 @@ int main(int argc, char **argv) {
     cudaMalloc(&buffers[det], memsize * sizeof(int));
     cudaMemset(buffers[det], det, memsize * sizeof(int)); // Set buffer[det] to value det
 
-    // cudaSetDevice(src);
 
     // Start profiler // nvprof --profile-from-start off
     cudaProfilerStart(); 
+    
+    
 
     // Copy data from src GPU to det GPU
-    // delay<<<128, 128>>>(buffers[det], det, buffers[src], src, sizeof(int) * memsize, 10000);
+    cudaSetDevice(src);
     cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
     
 
