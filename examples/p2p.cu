@@ -15,7 +15,7 @@
 #include "device_launch_parameters.h"
 #include <stdlib.h>
  
-__global__ void delay(unsigned long long timeout_clocks = 1000000000) {                        
+__global__ void delay(unsigned long long timeout_clocks = 10000) {                        
 // Wait until the application notifies us that it has completed queuing up the
 // experiment, or timeout and exit, allowing the application to make progress
 long long int start_clock, sample_clock;
@@ -80,7 +80,7 @@ int main(int argc, char **argv) {
     // cudaStreamSynchronize(stream[src]);
     
     cudaSetDevice(src);
-    
+
     // Stop profiler
     cudaProfilerStop(); 
 
