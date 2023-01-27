@@ -67,6 +67,8 @@ int main(int argc, char **argv) {
     cudaMalloc(&buffers[det], memsize * sizeof(int));
     cudaMemset(buffers[det], det, memsize * sizeof(int)); // Set buffer[det] to value det
 
+    cudaSetDevice(src);
+
     // Start profiler // nvprof --profile-from-start off
     cudaProfilerStart(); 
 
@@ -79,7 +81,6 @@ int main(int argc, char **argv) {
     cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
     // cudaStreamSynchronize(stream[src]);
     
-    cudaSetDevice(src);
 
     // Stop profiler
     cudaProfilerStop(); 
