@@ -39,7 +39,6 @@ int main(int argc, char **argv) {
     int src;
     int det;
     int memsize;
-    volatile int *flag = NULL;
 
     cudaGetDeviceCount(&numGPUs); // get number of GPUs
 
