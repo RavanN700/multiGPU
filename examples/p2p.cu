@@ -15,11 +15,12 @@
 #include "device_launch_parameters.h"
 #include <stdlib.h>
  
-__global__ void delay(unsigned long long timeout_clocks = 10000) {                        
+__global__ void delay(int *dest, int destDevice, int *src, int srcDevice,int num_elems,unsigned long long timeout_clocks = 10000) {                        
 // Wait until the application notifies us that it has completed queuing up the
 // experiment, or timeout and exit, allowing the application to make progress
 long long int start_clock, sample_clock;
 start_clock = clock64();
+cudaMemcpyPeer(dest, destDevice, src, srcDevice, sizeof(int) * num_elems);
 
 while (1) {
 sample_clock = clock64();
@@ -77,8 +78,8 @@ int main(int argc, char **argv) {
     // cudaStreamSynchronize(stream[src]);
     // cudaMemcpyPeerAsync(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
 
-    delay<<<128, 128>>>();
-    cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
+    delay<<<128, 128>>>(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
+    // cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
     // cudaStreamSynchronize(stream[src]);
     
 
