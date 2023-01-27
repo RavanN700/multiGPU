@@ -15,22 +15,7 @@
 #include "device_launch_parameters.h"
 #include <stdlib.h>
  
-// __global__ void delay(int *dest, int destDevice, int *src, int srcDevice,int num_elems,unsigned long long timeout_clocks = 10000) {                        
-// // Wait until the application notifies us that it has completed queuing up the
-// // experiment, or timeout and exit, allowing the application to make progress
-// long long int start_clock, sample_clock;
-// start_clock = clock64();
-// cudaMemcpyPeer(dest, destDevice, src, srcDevice, sizeof(int) * num_elems);
 
-// while (1) {
-// sample_clock = clock64();
-
-// if (sample_clock - start_clock > timeout_clocks) {
-// break;
-// }
-// }
-// }
- 
  
 int main(int argc, char **argv) {
 
@@ -65,12 +50,12 @@ int main(int argc, char **argv) {
     cudaMalloc(&buffers[det], memsize * sizeof(int));
     cudaMemset(buffers[det], det, memsize * sizeof(int)); // Set buffer[det] to value det
 
+    cudaSetDevice(src);
 
     // Start profiler // nvprof --profile-from-start off
     cudaProfilerStart(); 
 
     // Copy data from src GPU to det GPU
-    cudaSetDevice(src);
     // delay<<<128, 128>>>(buffers[det], det, buffers[src], src, sizeof(int) * memsize, 10000);
     cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
     
