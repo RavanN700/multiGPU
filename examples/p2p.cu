@@ -78,7 +78,7 @@ int main(int argc, char **argv) {
     // cudaStreamSynchronize(stream[src]);
     // cudaMemcpyPeerAsync(buffers[det], det, buffers[src], src, sizeof(int) * memsize, stream[src]);
 
-    delay<<<128, 128>>>(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
+    delay<<<128, 128>>>(buffers[det], det, buffers[src], src, sizeof(int) * memsize, 10000);
     // cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
     // cudaStreamSynchronize(stream[src]);
     
