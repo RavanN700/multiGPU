@@ -31,7 +31,7 @@ vecAdd(const int *A, const int *B, int *C, int numElements)
 int main(int argc, char **argv) {
 
     using namespace std;
-    int numGPUs;
+    // int numGPUs;
 
     int src;
     int det;
