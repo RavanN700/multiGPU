@@ -27,6 +27,14 @@ vecAdd(const int *A, const int *B, int *C, int numElements)
     }
 }
 
+// initilize vector to be all "1"
+static void
+initVec(int *vec, int n)
+{
+    for (int i = 0; i < n; i++)
+        vec[i] = 1;
+}
+
  
 int main(int argc, char **argv) {
 
@@ -36,6 +44,9 @@ int main(int argc, char **argv) {
     int src;
     int det;
     int memsize;
+
+    int *h_A, *h_B, *h_C;
+
 
     // cudaGetDeviceCount(&numGPUs); // get number of GPUs
 
@@ -52,16 +63,25 @@ int main(int argc, char **argv) {
 
     // Initilize buffer for src and det GPU
     vector<int *> buffers(10);
-    // Src GPU
-    cudaSetDevice(src);
-    cudaMalloc(&buffers[src], memsize * sizeof(int));     // vec A  
-    cudaMemset(buffers[src], src, memsize * sizeof(int)); // Set buffer[src] to value src
 
+    // Src GPU contain A & C
+    cudaSetDevice(src);
+    h_A = (int*)malloc(memsize);
+    initVec(h_A, memsize);
+    cudaMalloc(&buffers[src], memsize * sizeof(int));     // vec A  
+    // cudaMemset(buffers[src], src, memsize * sizeof(int)); // Set buffer[src] to value src
+
+    h_C = (int*)malloc(memsize);
     cudaMalloc(&buffers[9], memsize * sizeof(int)); // vec C
-    cudaMemset(buffers[9], 9, memsize * sizeof(int));
+    cudaMemset(buffers[9], 0, memsize * sizeof(int));
+
+    // Copy vectors from host memory to device memory
+    cudaMemcpy(buffers[src], h_A, memsize, cudaMemcpyHostToDevice);
 
     // Det GPU
     cudaSetDevice(det);
+    h_B = (int*)malloc(memsize);
+    initVec(h_B, memsize);
     cudaMalloc(&buffers[det], memsize * sizeof(int));
     cudaMemset(buffers[det], det, memsize * sizeof(int)); // Set buffer[det] to value det
 
@@ -83,14 +103,25 @@ int main(int argc, char **argv) {
     // Stop profiler
     cudaProfilerStop(); 
 
-    cudaFree(buffers[src]);
-    cudaFree(buffers[det]);
-    cudaFree(buffers[9]);
+
+    // Copy back to host memory
+    cudaMemcpy(h_C, buffers[9], memsize, cudaMemcpyDeviceToHost);
+
+
+
 
 
     double mb = memsize * sizeof(int) / (double)1e6;
     printf("Size of data transfer (MB): %f\n", mb);
 
+    printf("Output vector: %d\n", h_C[0])
+    
+    cudaFree(buffers[src]);
+    cudaFree(buffers[det]);
+    cudaFree(buffers[9]);
+    free(h_A);
+    free(h_B);
+    free(h_C);
 
     exit(EXIT_SUCCESS);
  }
