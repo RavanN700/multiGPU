@@ -43,9 +43,10 @@ int main(int argc, char **argv) {
 
     int src;
     int det;
-    int memsize;
+    int size;
 
     int *h_A, *h_B, *h_C;
+    int *d_A, *d_B, *d_C;
 
 
     // cudaGetDeviceCount(&numGPUs); // get number of GPUs
@@ -60,53 +61,57 @@ int main(int argc, char **argv) {
     scanf("%d", &memsize);
     printf("\n");
 
+    size_t size = memsize * sizeof(int);
 
-    // Initilize buffer for src and det GPU
-    vector<int *> buffers(10);
+    // Allocate input vectors h_A and h_B in host memory
+    h_A = (int*)malloc(size);
+    h_B = (int*)malloc(size);
+    h_C = (int*)malloc(size);
 
-    // Src GPU contain A & C
+    // Initialize input vectors
+    initVec(h_A, 1);
+    initVec(h_B, 2);
+    memset(h_C, 0, size);
+
+    // Allocate vectors on Src and Det GPU
+
+    // Src GPU contains vec_A and vec_C
     cudaSetDevice(src);
-    h_A = (int*)malloc(memsize);
-    initVec(h_A, memsize);
-    cudaMalloc(&buffers[src], memsize * sizeof(int));     // vec A  
-    // cudaMemset(buffers[src], src, memsize * sizeof(int)); // Set buffer[src] to value src
+    cudaMalloc((void**)&d_A, size);  
+    cudaMalloc((void**)&d_C, size);
 
-    h_C = (int*)malloc(memsize);
-    cudaMalloc(&buffers[9], memsize * sizeof(int)); // vec C
-    cudaMemset(buffers[9], 0, memsize * sizeof(int));
-
-    // Copy vectors from host memory to device memory
-    cudaMemcpy(buffers[src], h_A, memsize, cudaMemcpyHostToDevice);
+    // Copy vector A from host memory to device memory
+    cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
 
     // Det GPU
     cudaSetDevice(det);
-    h_B = (int*)malloc(memsize);
-    initVec(h_B, memsize);
-    cudaMalloc(&buffers[det], memsize * sizeof(int));
-    cudaMemset(buffers[det], det, memsize * sizeof(int)); // Set buffer[det] to value det
+    cudaMalloc(&buffers[det], size * sizeof(int));
+
     int deviceList[8] = {0,1,2,3,4,5,6,7};
     cudaSetValidDevices(deviceList, 2);
-    // cudaSetDevice(src);
-    // cudaSetDevice(det);
-    // int threadsPerBlock = 256;
-    // int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
+
+    // Copy vector B from host memory to device memory
+    cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
+    
+
+
+    int threadsPerBlock = 256;
+    int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
+    
     // Start profiler // nvprof --profile-from-start off
     cudaProfilerStart(); 
     
 
-    vecAdd <<<256, 256>>>(buffers[src], buffers[det], buffers[9], memsize);
+    vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
-    // Copy data from src GPU to det GPU
-    // cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
     
 
     // Stop profiler
     cudaProfilerStop(); 
 
 
-    // Copy back to host memory
-    cudaMemcpy(h_C, buffers[9], memsize, cudaMemcpyDeviceToHost);
-
+    // Copy back to host memory in src GPU
+    cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
 
 
 
@@ -116,12 +121,12 @@ int main(int argc, char **argv) {
 
     printf("Output vector: %d\n", h_C[0]);
     
-    // cudaFree(buffers[src]);
-    // cudaFree(buffers[det]);
-    // cudaFree(buffers[9]);
-    // free(h_A);
-    // free(h_B);
-    // free(h_C);
+    cudaFree(buffers[src]);
+    cudaFree(buffers[det]);
+    cudaFree(buffers[9]);
+    free(h_A);
+    free(h_B);
+    free(h_C);
 
     exit(EXIT_SUCCESS);
  }
