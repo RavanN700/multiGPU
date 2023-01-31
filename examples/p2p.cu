@@ -37,7 +37,7 @@ int main(int argc, char **argv) {
     int det;
     int memsize;
 
-    cudaGetDeviceCount(&numGPUs); // get number of GPUs
+    // cudaGetDeviceCount(&numGPUs); // get number of GPUs
 
     printf("Please enter the source GPU: ");
     scanf("%d", &src);
@@ -51,14 +51,14 @@ int main(int argc, char **argv) {
 
 
     // Initilize buffer for src and det GPU
-    vector<int *> buffers(numGPUs+1);
+    vector<int *> buffers(10);
     // Src GPU
     cudaSetDevice(src);
     cudaMalloc(&buffers[src], memsize * sizeof(int));     // vec A  
     cudaMemset(buffers[src], src, memsize * sizeof(int)); // Set buffer[src] to value src
 
-    cudaMalloc(&buffers[numGPUs], memsize * sizeof(int)); // vec C
-    cudaMemset(buffers[numGPUs], numGPUs, memsize * sizeof(int));
+    cudaMalloc(&buffers[9], memsize * sizeof(int)); // vec C
+    cudaMemset(buffers[9], 9, memsize * sizeof(int));
 
     // Det GPU
     cudaSetDevice(det);
@@ -72,7 +72,7 @@ int main(int argc, char **argv) {
     cudaProfilerStart(); 
     
 
-    vecAdd <<<256, 256>>>(buffers[src], buffers[det], buffers[numGPUs], memsize);
+    vecAdd <<<256, 256>>>(buffers[src], buffers[det], buffers[9], memsize);
 
     // Copy data from src GPU to det GPU
     // cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
