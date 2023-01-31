@@ -116,9 +116,9 @@ int main(int argc, char **argv) {
 
     printf("Output vector: %d\n", h_C[0]);
     
-    cudaFree(buffers[src]);
-    cudaFree(buffers[det]);
-    cudaFree(buffers[9]);
+    // cudaFree(buffers[src]);
+    // cudaFree(buffers[det]);
+    // cudaFree(buffers[9]);
     // free(h_A);
     // free(h_B);
     // free(h_C);
