@@ -71,7 +71,7 @@ int main(int argc, char **argv) {
     // Initialize input vectors
     initVec(h_A, 1);
     initVec(h_B, 2);
-    memset(h_C, 0, size);
+    memset(h_C, 10, size);
 
     // Src GPU contains vec_A and vec_C
     cudaSetDevice(src);
