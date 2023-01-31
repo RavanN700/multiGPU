@@ -119,9 +119,9 @@ int main(int argc, char **argv) {
     cudaFree(buffers[src]);
     cudaFree(buffers[det]);
     cudaFree(buffers[9]);
-    free(h_A);
-    free(h_B);
-    free(h_C);
+    // free(h_A);
+    // free(h_B);
+    // free(h_C);
 
     exit(EXIT_SUCCESS);
  }
