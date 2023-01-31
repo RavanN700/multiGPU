@@ -84,8 +84,8 @@ int main(int argc, char **argv) {
     initVec(h_B, memsize);
     cudaMalloc(&buffers[det], memsize * sizeof(int));
     cudaMemset(buffers[det], det, memsize * sizeof(int)); // Set buffer[det] to value det
-
-    cudaSetValidDevices({0,1,2,3,4,5,6,7}, 2);
+    int deviceList[8] = {0,1,2,3,4,5,6,7};
+    cudaSetValidDevices(deviceList, 2);
     // cudaSetDevice(src);
     // cudaSetDevice(det);
     // int threadsPerBlock = 256;
