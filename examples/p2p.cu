@@ -66,13 +66,13 @@ int main(int argc, char **argv) {
     cudaMemset(buffers[det], det, memsize * sizeof(int)); // Set buffer[det] to value det
 
     cudaSetDevice(src);
-    int threadsPerBlock = 256;
-    int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
+    // int threadsPerBlock = 256;
+    // int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
     // Start profiler // nvprof --profile-from-start off
     cudaProfilerStart(); 
     
 
-    vecAdd <<<blocksPerGrid, threadsPerBlock>>>(buffers[src], buffers[det], buffers[numGPUs], memsize);
+    vecAdd <<<256, 256>>>(buffers[src], buffers[det], buffers[numGPUs], memsize);
 
     // Copy data from src GPU to det GPU
     // cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
