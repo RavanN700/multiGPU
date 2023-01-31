@@ -83,7 +83,7 @@ int main(int argc, char **argv) {
 
     cudaFree(buffers[src]);
     cudaFree(buffers[det]);
-    cudaFree(buffers[numGPUs]);
+    cudaFree(buffers[9]);
 
 
     double mb = memsize * sizeof(int) / (double)1e6;
