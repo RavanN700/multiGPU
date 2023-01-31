@@ -74,8 +74,6 @@ int main(int argc, char **argv) {
     initVec(h_B, 2);
     memset(h_C, 0, size);
 
-    // Allocate vectors on Src and Det GPU
-
     // Src GPU contains vec_A and vec_C
     cudaSetDevice(src);
     cudaMalloc((void**)&d_A, size);  
@@ -84,25 +82,23 @@ int main(int argc, char **argv) {
     // Copy vector A from host memory to device memory
     cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
 
-    // Det GPU
+    // Det GPU contains vec_B
     cudaSetDevice(det);
-    cudaMalloc(&buffers[det], size * sizeof(int));
-
-    int deviceList[8] = {0,1,2,3,4,5,6,7};
-    cudaSetValidDevices(deviceList, 2);
+    cudaMalloc((void**)&d_B, size);
 
     // Copy vector B from host memory to device memory
     cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
-    
 
-
+    // Make src and det device both valid
+    int deviceList[8] = {0,1,2,3,4,5,6,7};
+    cudaSetValidDevices(deviceList, 2);
     int threadsPerBlock = 256;
     int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
     
     // Start profiler // nvprof --profile-from-start off
     cudaProfilerStart(); 
     
-
+    // vecadd kernel
     vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
     
@@ -113,8 +109,6 @@ int main(int argc, char **argv) {
 
     // Copy back to host memory in src GPU
     cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
-
-
 
 
     double mb = memsize * sizeof(int) / (double)1e6;
