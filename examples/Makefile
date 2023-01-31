@@ -1,4 +1,4 @@
-all:   p2p conv_100
+all:   p2p 
 
 CUPTI_PATH=/usr/local/cuda/extras/CUPTI
 INCLUDES = -I ../include -I /usr/local/cuda/extras/CUPTI/include -I ../Common
