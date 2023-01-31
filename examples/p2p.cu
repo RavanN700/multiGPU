@@ -15,6 +15,17 @@
 #include "device_launch_parameters.h"
 #include <stdlib.h>
  
+ // Vector kernel 
+__global__ void
+vecAdd(const int *A, const int *B, int *C, int numElements)
+{
+    int i = blockDim.x * blockIdx.x + threadIdx.x;
+
+    if (i < numElements)
+    {
+        C[i] = A[i] + B[i];
+    }
+}
 
  
 int main(int argc, char **argv) {
@@ -40,11 +51,15 @@ int main(int argc, char **argv) {
 
 
     // Initilize buffer for src and det GPU
-    vector<int *> buffers(numGPUs);
+    vector<int *> buffers(numGPUs+1);
     // Src GPU
     cudaSetDevice(src);
-    cudaMalloc(&buffers[src], memsize * sizeof(int));
+    cudaMalloc(&buffers[src], memsize * sizeof(int));     // vec A  
     cudaMemset(buffers[src], src, memsize * sizeof(int)); // Set buffer[src] to value src
+
+    cudaMalloc(&buffers[numGPUs], memsize * sizeof(int)); // vec C
+    cudaMemset(buffers[numGPUs], numGPUs, memsize * sizeof(int));
+
     // Det GPU
     cudaSetDevice(det);
     cudaMalloc(&buffers[det], memsize * sizeof(int));
@@ -54,14 +69,21 @@ int main(int argc, char **argv) {
     // Start profiler // nvprof --profile-from-start off
     cudaProfilerStart(); 
     
-    
+    int threadsPerBlock = 256;
+    int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
+    vecAdd <<<blocksPerGrid, threadsPerBlock>>>(buffers[src], buffers[det], buffers[numGPUs], memsize);
 
     // Copy data from src GPU to det GPU
-    cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
+    // cudaMemcpyPeer(buffers[det], det, buffers[src], src, sizeof(int) * memsize);
     
 
     // Stop profiler
     cudaProfilerStop(); 
+
+    cudaFree(buffers[src]);
+    cudaFree(buffers[det]);
+    cudaFree(buffers[numGPUs]);
+
 
     double mb = memsize * sizeof(int) / (double)1e6;
     printf("Size of data transfer (MB): %f\n", mb);
