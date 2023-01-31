@@ -85,8 +85,8 @@ int main(int argc, char **argv) {
     cudaMalloc(&buffers[det], memsize * sizeof(int));
     cudaMemset(buffers[det], det, memsize * sizeof(int)); // Set buffer[det] to value det
 
-    cudaSetValidDevices(NULL, 0);
-    // cudaSetDevice(src);
+    // cudaSetValidDevices(NULL, 0);
+    cudaSetDevice(src);
     // cudaSetDevice(det);
     // int threadsPerBlock = 256;
     // int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
@@ -116,12 +116,12 @@ int main(int argc, char **argv) {
 
     printf("Output vector: %d\n", h_C[0]);
     
-    // cudaFree(buffers[src]);
-    // cudaFree(buffers[det]);
-    // cudaFree(buffers[9]);
-    // free(h_A);
-    // free(h_B);
-    // free(h_C);
+    cudaFree(buffers[src]);
+    cudaFree(buffers[det]);
+    cudaFree(buffers[9]);
+    free(h_A);
+    free(h_B);
+    free(h_C);
 
     exit(EXIT_SUCCESS);
  }
