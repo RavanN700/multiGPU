@@ -43,7 +43,6 @@ int main(int argc, char **argv) {
 
     int src;
     int det;
-    int size;
     int memsize;
 
     int *h_A, *h_B, *h_C;
