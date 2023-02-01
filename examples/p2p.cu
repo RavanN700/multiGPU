@@ -32,7 +32,7 @@ static void
 initVec(int *vec, int n)
 {
     for (int i = 0; i < n; i++)
-        vec[i] = 1;
+        vec[i] = 10;
 }
 
  
@@ -69,9 +69,9 @@ int main(int argc, char **argv) {
     h_C = (int*)malloc(size);
 
     // Initialize input vectors
-    initVec(h_A, size);
-    initVec(h_B, size);
-    initVec(h_C, size);
+    initVec(h_A, memsize);
+    initVec(h_B, memsize);
+    initVec(h_C, memsize);
 
     // Src GPU contains vec_A and vec_C
     // cudaSetDevice(src);
