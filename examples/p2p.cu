@@ -113,9 +113,9 @@ int main(int argc, char **argv) {
 
     double mb = memsize * sizeof(int) / (double)1e6;
     printf("Size of data transfer (MB): %f\n", mb);
-    printf("Output vector V_A: %d\n", h_A[0]);
-    printf("Output vector V_B: %d\n", h_B[0]);
-    printf("Output vector V_C: %d\n", h_C[0]);
+    printf("Output vector V_A (original value = 1): %d\n", h_A[0]);
+    printf("Output vector V_B (original value = 2): %d\n", h_B[0]);
+    // printf("Output vector V_C (original value = 3): %d\n", h_C[0]);
     
     cudaFree(d_A);
     cudaFree(d_B);
