@@ -90,8 +90,7 @@ int main(int argc, char **argv) {
 
     // Make src and det device both valid
     int deviceList[4] = {0,1,2,3};
-    // cudaSetValidDevices(deviceList, 3);
-    cudaSetValidDevices(NULL, 0);
+    cudaSetValidDevices(deviceList, 4);
     int threadsPerBlock = 256;
     int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
     
