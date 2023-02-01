@@ -52,6 +52,9 @@ int main(int argc, char **argv) {
     cudaEventCreate(&start);
     cudaEventCreate(&stop);
 
+    struct timeval t1, t2;
+
+
 
     // cudaGetDeviceCount(&numGPUs); // get number of GPUs
 
@@ -103,7 +106,9 @@ int main(int argc, char **argv) {
     cudaProfilerStart(); 
     
     // Start record time
-    cudaEventRecord(start);
+    // cudaEventRecord(start);
+    gettimeofday(&t1, 0);
+    
 
     // vecadd kernel
     // vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
@@ -115,11 +120,13 @@ int main(int argc, char **argv) {
     cudaProfilerStop(); 
 
     // Stop time record
-    cudaEventRecord(stop);
+    // cudaEventRecord(stop);
+    gettimeofday(&t2, 0);
 
     cudaEventSynchronize(stop);
-    float milliseconds = 0;
-    cudaEventElapsedTime(&milliseconds, start, stop);
+    // double milliseconds = 0;
+    // cudaEventElapsedTime(&milliseconds, start, stop);
+    double milliseconds = (1000000.0*(t2.tv_sec-t1.tv_sec) + t2.tv_usec-t1.tv_usec)/1000.0;
 
 
     // Copy back to host memory in src GPU
