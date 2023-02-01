@@ -101,13 +101,14 @@ int main(int argc, char **argv) {
     int threadsPerBlock = 256;
     int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
     
+    // Start record time
+    // cudaEventRecord(start);
+    gettimeofday(&t1, 0);    
     
     // Start profiler // nvprof --profile-from-start off
     cudaProfilerStart(); 
     
-    // Start record time
-    // cudaEventRecord(start);
-    gettimeofday(&t1, 0);
+
     
 
     // vecadd kernel
@@ -123,7 +124,7 @@ int main(int argc, char **argv) {
     // cudaEventRecord(stop);
     gettimeofday(&t2, 0);
 
-    cudaEventSynchronize(stop);
+    // cudaEventSynchronize(stop);
     // double milliseconds = 0;
     // cudaEventElapsedTime(&milliseconds, start, stop);
     double milliseconds = (1000000.0*(t2.tv_sec-t1.tv_sec) + t2.tv_usec-t1.tv_usec)/1000.0;
@@ -139,6 +140,7 @@ int main(int argc, char **argv) {
     printf("Vector V_A[memsize-1] (original value = 1): %d\n", h_A[memsize-1]);
     printf("Vector V_B[memsize-1] (original value = 2): %d\n", h_B[memsize-1]);
     // printf("Vector V_C[memsize-1] (original value = 3): %d\n", h_C[memsize-1]);
+    printf("Time (ms): %f\n", milliseconds);
     printf("Bandwith (MB/s): %f\n",mb*1e3/milliseconds);
 
     cudaFree(d_A);
