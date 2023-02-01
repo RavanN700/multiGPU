@@ -29,10 +29,10 @@ vecAdd(const int *A, const int *B, int *C, int numElements)
 
 // initilize vector to be all "1"
 static void
-initVec(int *vec, int n)
+initVec(int *vec, int n, int value)
 {
     for (int i = 0; i < n; i++)
-        vec[i] = 10;
+        vec[i] = value;
 }
 
  
@@ -69,9 +69,9 @@ int main(int argc, char **argv) {
     h_C = (int*)malloc(size);
 
     // Initialize input vectors
-    initVec(h_A, memsize);
-    initVec(h_B, memsize);
-    initVec(h_C, memsize);
+    initVec(h_A, memsize, 1);
+    initVec(h_B, memsize, 2);
+    initVec(h_C, memsize, 3);
 
     // Src GPU contains vec_A and vec_C
     cudaSetDevice(src);
@@ -98,22 +98,24 @@ int main(int argc, char **argv) {
     cudaProfilerStart(); 
     
     // vecadd kernel
-    vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
+    // vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
+    // Peer to peer memory copy from device 0 to device 1
+    cudaMemcpyPeer(d_B, 1, d_A, 0, size);
     
-
     // Stop profiler
     cudaProfilerStop(); 
 
-
     // Copy back to host memory in src GPU
     cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_B, d_B, size, cudaMemcpyDeviceToHost); // test peer2peer memcpy
 
 
     double mb = memsize * sizeof(int) / (double)1e6;
     printf("Size of data transfer (MB): %f\n", mb);
-
-    printf("Output vector: %d\n", h_C[0]);
+    printf("Output vector V_A: %d\n", h_A[0]);
+    printf("Output vector V_B: %d\n", h_B[0]);
+    printf("Output vector V_C: %d\n", h_C[0]);
     
     cudaFree(d_A);
     cudaFree(d_B);
