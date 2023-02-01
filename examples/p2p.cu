@@ -89,8 +89,8 @@ int main(int argc, char **argv) {
     cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
 
     // Make src and det device both valid
-    // int deviceList[2] = {0,1};
-    // cudaSetValidDevices(deviceList, 2);
+    int deviceList[2] = {0,1};
+    cudaSetValidDevices(deviceList, 2);
     int threadsPerBlock = 256;
     int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
     
