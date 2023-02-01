@@ -48,6 +48,10 @@ int main(int argc, char **argv) {
     int *h_A, *h_B, *h_C;
     int *d_A, *d_B, *d_C;
 
+    cudaEvent_t start, stop;
+    cudaEventCreate(&start);
+    cudaEventCreate(&stop);
+
 
     // cudaGetDeviceCount(&numGPUs); // get number of GPUs
 
@@ -94,9 +98,13 @@ int main(int argc, char **argv) {
     int threadsPerBlock = 256;
     int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
     
+    
     // Start profiler // nvprof --profile-from-start off
     cudaProfilerStart(); 
     
+    // Start record time
+    cudaEventRecord(start);
+
     // vecadd kernel
     // vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
@@ -105,6 +113,14 @@ int main(int argc, char **argv) {
     
     // Stop profiler
     cudaProfilerStop(); 
+
+    // Stop time record
+    cudaEventRecord(stop);
+
+    cudaEventSynchronize(stop);
+    float milliseconds = 0;
+    cudaEventElapsedTime(&milliseconds, start, stop);
+
 
     // Copy back to host memory in src GPU
     // cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
@@ -116,7 +132,8 @@ int main(int argc, char **argv) {
     printf("Vector V_A[memsize-1] (original value = 1): %d\n", h_A[memsize-1]);
     printf("Vector V_B[memsize-1] (original value = 2): %d\n", h_B[memsize-1]);
     // printf("Vector V_C[memsize-1] (original value = 3): %d\n", h_C[memsize-1]);
-    
+    printf("Bandwith (MB/s): %f\n",mb/milliseconds/1e3);
+
     cudaFree(d_A);
     cudaFree(d_B);
     cudaFree(d_C);
