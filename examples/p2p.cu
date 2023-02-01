@@ -132,7 +132,7 @@ int main(int argc, char **argv) {
     printf("Vector V_A[memsize-1] (original value = 1): %d\n", h_A[memsize-1]);
     printf("Vector V_B[memsize-1] (original value = 2): %d\n", h_B[memsize-1]);
     // printf("Vector V_C[memsize-1] (original value = 3): %d\n", h_C[memsize-1]);
-    printf("Bandwith (MB/s): %f\n",mb/milliseconds/1e3);
+    printf("Bandwith (MB/s): %f\n",mb*1e3/milliseconds);
 
     cudaFree(d_A);
     cudaFree(d_B);
