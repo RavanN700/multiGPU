@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
     initVec(h_C, 10);
 
     // Src GPU contains vec_A and vec_C
-    cudaSetDevice(src);
+    // cudaSetDevice(src);
     cudaMalloc((void**)&d_A, size);  
     cudaMalloc((void**)&d_C, size);
 
@@ -82,15 +82,15 @@ int main(int argc, char **argv) {
     cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
 
     // Det GPU contains vec_B
-    cudaSetDevice(det);
+    // cudaSetDevice(det);
     cudaMalloc((void**)&d_B, size);
 
     // Copy vector B from host memory to device memory
     cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
 
     // Make src and det device both valid
-    int deviceList[2] = {0,1};
-    cudaSetValidDevices(deviceList, 2);
+    // int deviceList[2] = {0,1};
+    // cudaSetValidDevices(deviceList, 2);
     int threadsPerBlock = 256;
     int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
     
