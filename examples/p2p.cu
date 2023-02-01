@@ -69,9 +69,9 @@ int main(int argc, char **argv) {
     h_C = (int*)malloc(size);
 
     // Initialize input vectors
-    initVec(h_A, 1);
-    initVec(h_B, 2);
-    initVec(h_C, 10);
+    initVec(h_A, size);
+    initVec(h_B, size);
+    initVec(h_C, size);
 
     // Src GPU contains vec_A and vec_C
     // cudaSetDevice(src);
