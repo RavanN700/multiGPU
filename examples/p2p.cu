@@ -107,7 +107,7 @@ int main(int argc, char **argv) {
     cudaProfilerStop(); 
 
     // Copy back to host memory in src GPU
-    cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+    // cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
     cudaMemcpy(h_B, d_B, size, cudaMemcpyDeviceToHost); // test peer2peer memcpy
 
 
