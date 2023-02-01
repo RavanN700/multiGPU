@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
     initVec(h_C, memsize);
 
     // Src GPU contains vec_A and vec_C
-    // cudaSetDevice(src);
+    cudaSetDevice(src);
     cudaMalloc((void**)&d_A, size);  
     cudaMalloc((void**)&d_C, size);
 
@@ -82,7 +82,7 @@ int main(int argc, char **argv) {
     cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
 
     // Det GPU contains vec_B
-    // cudaSetDevice(det);
+    cudaSetDevice(det);
     cudaMalloc((void**)&d_B, size);
 
     // Copy vector B from host memory to device memory
