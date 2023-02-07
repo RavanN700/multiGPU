@@ -108,7 +108,7 @@ int main(int argc, char **argv) {
     
 
     // Start profiler // nvprof --profile-from-start off
-    // cudaProfilerStart(); 
+    cudaProfilerStart(); 
     
 
     
@@ -119,12 +119,12 @@ int main(int argc, char **argv) {
     // Peer to peer memory copy from device src to device det
     cudaSetDevice(src);
     cudaMemcpyPeer(d_B, det, d_A, src, size);
-    // cudaSetDevice(det);
-    // cudaMemcpyPeer(d_B, det, d_A, src, size);
+    cudaSetDevice(det);
+    cudaMemcpyPeer(d_B, det, d_A, src, size);
 
     
     // Stop profiler
-    // cudaProfilerStop(); 
+    cudaProfilerStop(); 
 
     // Stop time record
     // cudaEventRecord(stop);
