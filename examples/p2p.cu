@@ -118,8 +118,8 @@ int main(int argc, char **argv) {
     // Peer to peer memory copy from device 0 to device 1
     cudaSetDevice(src);
     cudaMemcpyPeer(d_B, det, d_A, src, size);
-    cudaSetDevice(det);
-    cudaMemcpyPeer(d_B, det, d_A, src, size);
+    // cudaSetDevice(det);
+    // cudaMemcpyPeer(d_B, det, d_A, src, size);
 
     
     // Stop profiler
