@@ -117,10 +117,10 @@ int main(int argc, char **argv) {
     // vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
     // Peer to peer memory copy from device src to device det
-    cudaSetDevice(src);
+    // cudaSetDevice(src);
     cudaMemcpyPeer(d_B, det, d_A, src, size);
-    cudaSetDevice(det);
-    cudaMemcpyPeer(d_B, det, d_A, src, size);
+    // cudaSetDevice(det);
+    // cudaMemcpyPeer(d_B, det, d_A, src, size);
 
     
     // Stop profiler
