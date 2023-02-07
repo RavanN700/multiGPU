@@ -108,7 +108,7 @@ int main(int argc, char **argv) {
     
 
     // Start profiler // nvprof --profile-from-start off
-    // cudaProfilerStart(); 
+    cudaProfilerStart(); 
     
 
     
@@ -124,7 +124,7 @@ int main(int argc, char **argv) {
 
     
     // Stop profiler
-    // cudaProfilerStop(); 
+    cudaProfilerStop(); 
 
     // Stop time record
     // cudaEventRecord(stop);
