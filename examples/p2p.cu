@@ -138,8 +138,8 @@ int main(int argc, char **argv) {
 
     double mb = memsize * sizeof(int) / (double)1e6;
     printf("Size of data transfer (MB): %f\n", mb);
-    printf("Vector V_A[memsize-1] (original value = 1): %d\n", h_A[memsize-1]);
-    printf("Vector V_B[memsize-1] (original value = 2): %d\n", h_B[memsize-1]);
+    printf("Vector V_A[%d] (original value = 1): %d\n", memsize-1,h_A[memsize-1]);
+    printf("Vector V_B[%d] (original value = 2): %d\n", memsize-1,h_B[memsize-1]);
     // printf("Vector V_C[memsize-1] (original value = 3): %d\n", h_C[memsize-1]);
     printf("Time (ms): %f\n", milliseconds);
     printf("Bandwith (MB/s): %f\n",mb*1e3/milliseconds);
