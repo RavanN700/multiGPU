@@ -96,8 +96,8 @@ int main(int argc, char **argv) {
     cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
 
     // Make src and det device both valid
-    int deviceList[4] = {0,1,2,3};
-    cudaSetValidDevices(deviceList, 2);
+    // int deviceList[4] = {0,1,2,3};
+    // cudaSetValidDevices(deviceList, 2);
     // cudaSetDevice(src);
     int threadsPerBlock = 256;
     int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
@@ -116,7 +116,11 @@ int main(int argc, char **argv) {
     // vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
     // Peer to peer memory copy from device 0 to device 1
+    cudaSetDevice(src);
     cudaMemcpyPeer(d_B, det, d_A, src, size);
+    cudaSetDevice(det);
+    cudaMemcpyPeer(d_B, det, d_A, src, size);
+
     
     // Stop profiler
     cudaProfilerStop(); 
