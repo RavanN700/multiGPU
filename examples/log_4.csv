@@ -1,0 +1,15 @@
+==45638== NVPROF is profiling process 45638, command: ./p2p
+==45638== Profiling application: ./p2p
+==45638== Profiling result:
+"Type","Time(%)","Time","Calls","Avg","Min","Max","Name"
+,%,us,,us,us,us,
+"GPU activities",100.000000,2.496000,1,2.496000,2.496000,2.496000,"[CUDA memcpy PtoP]"
+"API calls",100.000000,33.468000,1,33.468000,33.468000,33.468000,"cudaMemcpyPeer"
+==45638== Metric result:
+"Device","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"Tesla P100-SXM2-16GB (0)",1,"nvlink_total_data_transmitted (4 instances)","NVLink Total Data Transmitted",,,4512,240,240,240
+"Tesla P100-SXM2-16GB (0)",1,"nvlink_total_data_received (4 instances)","NVLink Total Data Received",,,960,160,160,160
+"Tesla P100-SXM2-16GB (0)",1,"nvlink_overhead_data_transmitted (4 instances)","NVLink Overhead Data Transmitted",,,0.113475%,1.000000%,1.000000%,1.000000%
+"Tesla P100-SXM2-16GB (0)",1,"nvlink_overhead_data_received (4 instances)","NVLink Overhead Data Received",,,1.000000%,1.000000%,1.000000%,1.000000%
+"Tesla P100-SXM2-16GB (0)",1,"nvlink_transmit_throughput (4 instances)","NVLink Transmit Throughput",,,26.442603MB/s,1.406521MB/s,1.406521MB/s,1.406521MB/s
+"Tesla P100-SXM2-16GB (0)",1,"nvlink_receive_throughput (4 instances)","NVLink Receive Throughput",,,5.626085MB/s,960.184570KB/s,960.184570KB/s,960.184570KB/s
