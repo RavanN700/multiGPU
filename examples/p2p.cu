@@ -99,7 +99,7 @@ int main(int argc, char **argv) {
     // int deviceList[4] = {0,1,2,3};
     // cudaSetValidDevices(deviceList, 2);
     cudaSetDevice(src);
-    cudaDeviceEnablePeerAccess(det);
+    cudaDeviceEnablePeerAccess(det, 0);
     int threadsPerBlock = 256;
     int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
     
