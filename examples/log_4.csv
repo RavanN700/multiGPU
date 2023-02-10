@@ -1,9 +1,10 @@
-==46116== NVPROF is profiling process 46116, command: ./p2p
-==46116== Events/metrics cannot be profiled on device 0 because replay is disabled.
-==46116== Profiling application: ./p2p
-==46116== Profiling result:
+==46878== NVPROF is profiling process 46878, command: ./p2p
+==46878== Profiling application: ./p2p
+==46878== Profiling result:
 "Type","Time(%)","Time","Calls","Avg","Min","Max","Name"
 ,%,us,,us,us,us,
-"GPU activities",100.000000,2.752000,1,2.752000,2.752000,2.752000,"[CUDA memcpy PtoP]"
-"API calls",100.000000,30.913000,1,30.913000,30.913000,30.913000,"cudaMemcpyPeer"
-No events/metrics were profiled.
+"GPU activities",100.000000,2.528000,1,2.528000,2.528000,2.528000,"[CUDA memcpy PtoP]"
+"API calls",100.000000,30.984000,1,30.984000,30.984000,30.984000,"cudaMemcpyPeer"
+==46878== Metric result:
+"Device","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"Tesla P100-SXM2-16GB (0)",1,"nvlink_receive_throughput (4 instances)","NVLink Receive Throughput",,,5.862226MB/s,0.977037MB/s,0.977037MB/s,0.977037MB/s

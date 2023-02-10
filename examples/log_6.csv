@@ -1,0 +1,10 @@
+==46907== NVPROF is profiling process 46907, command: ./p2p
+==46907== Profiling application: ./p2p
+==46907== Profiling result:
+"Type","Time(%)","Time","Calls","Avg","Min","Max","Name"
+,%,us,,us,us,us,
+"GPU activities",100.000000,2.560000,1,2.560000,2.560000,2.560000,"[CUDA memcpy PtoP]"
+"API calls",100.000000,36.583000,1,36.583000,36.583000,36.583000,"cudaMemcpyPeer"
+==46907== Metric result:
+"Device","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"Tesla P100-SXM2-16GB (0)",1,"nvlink_overhead_data_received (4 instances)","NVLink Overhead Data Received",,,1.000000%,1.000000%,1.000000%,1.000000%
