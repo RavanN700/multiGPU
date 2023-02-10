@@ -69,7 +69,7 @@ int main(int argc, char **argv) {
     // printf("\n");
     
     src = 0;
-    det = 2;
+    det = 7;
     memsize = 1000;
 
 
