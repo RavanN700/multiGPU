@@ -70,7 +70,7 @@ int main(int argc, char **argv) {
     
     src = 0;
     det = 1;
-    memsize = 1000;
+    memsize = 1;
 
 
     size_t size = memsize * sizeof(int);
