@@ -1,9 +1,0 @@
-==45382== NVPROF is profiling process 45382, command: ./p2p
-==45382== Events/metrics cannot be profiled on device 0 because replay is disabled.
-==45382== Profiling application: ./p2p
-==45382== Profiling result:
-"Type","Time(%)","Time","Calls","Avg","Min","Max","Name"
-,%,us,,us,us,us,
-"GPU activities",100.000000,2.528000,1,2.528000,2.528000,2.528000,"[CUDA memcpy PtoP]"
-"API calls",100.000000,32.002000,1,32.002000,32.002000,32.002000,"cudaMemcpyPeer"
-No events/metrics were profiled.
