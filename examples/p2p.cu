@@ -58,15 +58,20 @@ int main(int argc, char **argv) {
 
     // cudaGetDeviceCount(&numGPUs); // get number of GPUs
 
-    printf("Please enter the source GPU: ");
-    scanf("%d", &src);
-    printf("\n");
-    printf("Please enter the detination GPU: "); 
-    scanf("%d", &det);
-    printf("\n");
-    printf("Please enter the Number of Elements: ") ;
-    scanf("%d", &memsize);
-    printf("\n");
+    // printf("Please enter the source GPU: ");
+    // scanf("%d", &src);
+    // printf("\n");
+    // printf("Please enter the detination GPU: "); 
+    // scanf("%d", &det);
+    // printf("\n");
+    // printf("Please enter the Number of Elements: ") ;
+    // scanf("%d", &memsize);
+    // printf("\n");
+    
+    src = 0;
+    det = 1;
+    memsize = 1000;
+
 
     size_t size = memsize * sizeof(int);
 
