@@ -69,8 +69,8 @@ int main(int argc, char **argv) {
     // printf("\n");
     
     src = 0;
-    det = 2;
-    memsize = 1000;
+    det = 1;
+    memsize = 1;
 
 
     size_t size = memsize * sizeof(int);
