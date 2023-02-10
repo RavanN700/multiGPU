@@ -12,6 +12,9 @@ do
     nvprof  --profile-from-start off --aggregate-mode off  --csv --event-collection-mode continuous -m nvlink_user_data_transmitted ./p2p
     nvprof  --profile-from-start off --aggregate-mode off  --csv --event-collection-mode continuous -m nvlink_user_data_received ./p2p
     nvprof  --profile-from-start off --aggregate-mode off  --csv --event-collection-mode continuous -m nvlink_user_write_data_transmitted ./p2p
+    nvprof  --profile-from-start off --aggregate-mode off  --csv --event-collection-mode continuous -m pcie_total_data_transmitted ./p2p
+    nvprof  --profile-from-start off --aggregate-mode off  --csv --event-collection-mode continuous -m pcie_total_data_received ./p2p
+    
 
     
 done
