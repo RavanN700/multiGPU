@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
     // printf("\n");
     
     src = 0;
-    det = 7;
+    det = 1;
     memsize = 1000;
 
 
