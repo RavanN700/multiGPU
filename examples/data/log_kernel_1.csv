@@ -1,4 +1,18 @@
-==41335== NVPROF is profiling process 41335, command: ./p2p
-==41335== Profiling application: ./p2p
-==41335== Profiling result:
-No events/metrics were profiled.
+==41957== NVPROF is profiling process 41957, command: ./p2p
+==41957== Some kernel(s) will be replayed on device 0 in order to collect all events/metrics.
+==41957== Profiling application: ./p2p
+==41957== Profiling result:
+==41957== Metric result:
+"Device","Kernel","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_total_data_transmitted (4 instances)","NVLink Total Data Transmitted",,,6768,240,240,240
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_total_data_received (4 instances)","NVLink Total Data Received",,,6512,160,160,160
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_user_data_transmitted (4 instances)","NVLink User Data Transmitted",,,4000,0,0,0
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_user_data_received (4 instances)","NVLink User Data Received",,,4000,0,0,0
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_overhead_data_transmitted (4 instances)","NVLink Overhead Data Transmitted",,,0.408983%,1.000000%,1.000000%,1.000000%
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_overhead_data_received (4 instances)","NVLink Overhead Data Received",,,0.385749%,1.000000%,1.000000%,1.000000%
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_total_write_data_transmitted (4 instances)","NVLink Total Write Data Transmitted",,,4512,0,0,0
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_user_write_data_transmitted (4 instances)","NVLink User Write Data Transmitted",,,4000,0,0,0
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_transmit_throughput (4 instances)","NVLink Transmit Throughput",,,0.000000B/s,0.000000B/s,0.000000B/s,0.000000B/s
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_receive_throughput (4 instances)","NVLink Receive Throughput",,,0.000000B/s,0.000000B/s,0.000000B/s,0.000000B/s
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_total_response_data_received (4 instances)","NVLink Total Response Data Received",,,5008,0,0,0
+"Tesla P100-SXM2-16GB (0)","vecAdd(int const *, int const *, int*, int)",1,"nvlink_user_response_data_received (4 instances)","NVLink User Response Data Received",,,4000,0,0,0
