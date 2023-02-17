@@ -127,10 +127,10 @@ int main(int argc, char **argv) {
     
 
     // vecadd kernel
-    // vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
+    vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
     // Peer to peer memory copy from device src to device det
-    cudaMemcpyPeer(d_B, det, d_A, src, size);
+    // cudaMemcpyPeer(d_B, det, d_A, src, size);
 
 
     
@@ -142,13 +142,11 @@ int main(int argc, char **argv) {
     gettimeofday(&t2, 0);
 
     // cudaEventSynchronize(stop);
-    // double milliseconds = 0;
-    // cudaEventElapsedTime(&milliseconds, start, stop);
     double milliseconds = (1000000.0*(t2.tv_sec-t1.tv_sec) + t2.tv_usec-t1.tv_usec)/1000.0;
 
 
     // Copy back to host memory in src GPU
-    // cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost); // needed for kernel 
+    cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost); // needed for kernel 
     cudaMemcpy(h_B, d_B, size, cudaMemcpyDeviceToHost); // test peer2peer memcpy
 
 
