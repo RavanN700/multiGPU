@@ -1,4 +1,4 @@
-all:   p2p 
+all:   p2p p2p_colocated
 
 CUPTI_PATH=/usr/local/cuda/extras/CUPTI
 INCLUDES = -I ../include -I /usr/local/cuda/extras/CUPTI/include -I ../Common
@@ -17,5 +17,8 @@ nvlink : CUPTI_nvlink.cu
 p2p : p2p.cu	
 	nvcc $(CXXARGS) $(INCLUDES) $(LIBS) p2p.cu -o p2p
 
+p2p_colocated : p2p_colocated.cu
+	nvcc $(CXXARGS) $(INCLUDES) $(LIBS) p2p_colocated.cu -o p2p_colocated
+
 clean: 
-	rm -f *.o conv conv_100 nvlink p2p
+	rm -f *.o conv conv_100 nvlink p2p p2p_colocated
