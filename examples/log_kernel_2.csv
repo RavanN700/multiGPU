@@ -1,0 +1,4 @@
+==41354== NVPROF is profiling process 41354, command: ./p2p
+==41354== Profiling application: ./p2p
+==41354== Profiling result:
+No events/metrics were profiled.
