@@ -15,6 +15,11 @@
 #include "device_launch_parameters.h"
 #include <stdlib.h>
  
+// Idea of p2p.cu: copy mem from src gpu to det gpu
+// Two cases:
+// Case 1: using cudaMemcpyPeer(d_B, det, d_A, src, size) to copy d_A to d_B. d_A on src GPU, d_B on det GPU
+// Case 2: using vecAdd kernel to copy d_A to d_B. d_A on src GPU, d_B, d_C on det GPU
+
  // Vector kernel 
 __global__ void
 vecAdd(const int *A, const int *B, int *C, int numElements)
@@ -75,6 +80,7 @@ int main(int argc, char **argv) {
 
     size_t size = memsize * sizeof(int);
 
+
     // Allocate input vectors h_A and h_B in host memory
     h_A = (int*)malloc(size);
     h_B = (int*)malloc(size);
@@ -85,26 +91,27 @@ int main(int argc, char **argv) {
     initVec(h_B, memsize, 2);
     initVec(h_C, memsize, 3);
 
-    // Src GPU contains vec_A and vec_C
+    // Src GPU contains vec_A 
     cudaSetDevice(src);
     cudaMalloc((void**)&d_A, size);  
-    cudaMalloc((void**)&d_C, size);
 
     // Copy vector A from host memory to device memory
     cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
 
-    // Det GPU contains vec_B
+    // Det GPU contains vec_B and vec_C
     cudaSetDevice(det);
     cudaMalloc((void**)&d_B, size);
+    cudaMalloc((void**)&d_C, size);
+
 
     // Copy vector B from host memory to device memory
     cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
 
-    // Make src and det device both valid
-    // int deviceList[4] = {0,1,2,3};
-    // cudaSetValidDevices(deviceList, 2);
+    // Make sure src GPU have access to det GPU
     cudaSetDevice(src);
-    cudaDeviceEnablePeerAccess(det, 0);
+    cudaDeviceEnablePeerAccess(det, 0);  
+
+    
     int threadsPerBlock = 256;
     int blocksPerGrid = (memsize + threadsPerBlock - 1) / threadsPerBlock;
     
@@ -120,10 +127,10 @@ int main(int argc, char **argv) {
     
 
     // vecadd kernel
-    // vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
+    vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
     // Peer to peer memory copy from device src to device det
-    cudaMemcpyPeer(d_B, det, d_A, src, size);
+    // cudaMemcpyPeer(d_B, det, d_A, src, size);
 
 
     
@@ -141,7 +148,7 @@ int main(int argc, char **argv) {
 
 
     // Copy back to host memory in src GPU
-    // cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+    cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost); // test peer2peer memcpy
     cudaMemcpy(h_B, d_B, size, cudaMemcpyDeviceToHost); // test peer2peer memcpy
 
 
@@ -149,7 +156,7 @@ int main(int argc, char **argv) {
     printf("Size of data transfer (MB): %f\n", mb);
     printf("Vector V_A (original value = 1): %d\n",h_A[memsize-1]);
     printf("Vector V_B (original value = 2): %d\n",h_B[memsize-1]);
-    // printf("Vector V_C[memsize-1] (original value = 3): %d\n", h_C[memsize-1]);
+    printf("Vector V_C (original value = 3): %d\n", h_C[memsize-1]);
     printf("Time (ms): %f\n", milliseconds);
     printf("Bandwith (MB/s): %f\n",mb*1e3/milliseconds);
 
