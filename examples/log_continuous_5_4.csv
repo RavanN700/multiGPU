@@ -1,0 +1,10 @@
+==39664== NVPROF is profiling process 39664, command: ./p2p
+==39664== Profiling application: ./p2p
+==39664== Profiling result:
+"Type","Time(%)","Time","Calls","Avg","Min","Max","Name"
+,%,us,,us,us,us,
+"GPU activities",100.000000,2.497000,1,2.497000,2.497000,2.497000,"[CUDA memcpy PtoP]"
+"API calls",100.000000,107.795000,1,107.795000,107.795000,107.795000,"cudaMemcpyPeer"
+==39664== Metric result:
+"Device","Invocations","Metric Name","Metric Description","Min","Max","Avg"
+"Tesla P100-SXM2-16GB (0)",1,"nvlink_user_write_data_transmitted (4 instances)","NVLink User Write Data Transmitted",,,4000,0,0,0
