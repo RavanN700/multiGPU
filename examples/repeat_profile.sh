@@ -4,7 +4,8 @@ do
     nvprof --profile-from-start off --aggregate-mode off --csv --event-collection-mode continuous -m nvlink_overhead_data_transmitted,nvlink_overhead_data_received ./p2p
     nvprof --profile-from-start off --aggregate-mode off --csv --event-collection-mode continuous -m nvlink_total_response_data_received,nvlink_user_response_data_received ./p2p
     nvprof --profile-from-start off --aggregate-mode off --csv --event-collection-mode continuous -m nvlink_user_data_transmitted,nvlink_user_data_received ./p2p
-    nvprof --profile-from-start off --aggregate-mode off --csv --event-collection-mode continuous -m nvlink_total_write_data_transmitted, nvlink_user_write_data_transmitted ./p2p
+    nvprof --profile-from-start off --aggregate-mode off --csv --event-collection-mode continuous -m nvlink_total_write_data_transmitted ./p2p
+    nvprof --profile-from-start off --aggregate-mode off --csv --event-collection-mode continuous -m nvlink_user_write_data_transmitted ./p2p
 
 
 done
