@@ -130,7 +130,8 @@ int main(int argc, char **argv) {
     // vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
     // Peer to peer memory copy from device src to device det
-    cudaMemcpyPeer(d_B, det, d_A, src, size);
+    for(int i = 0; i < 100000; i++){
+    cudaMemcpyPeer(d_B, det, d_A, src, size);}
 
 
     
