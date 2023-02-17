@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
     // Initialize input vectors
     initVec(h_A, memsize, 1);
     initVec(h_B, memsize, 2);
-    initVec(h_C, memsize, 3);
+    initVec(h_C, memsize, 100);
 
     // Src GPU contains vec_A 
     cudaSetDevice(src);
@@ -156,7 +156,7 @@ int main(int argc, char **argv) {
     printf("Size of data transfer (MB): %f\n", mb);
     printf("Vector V_A (original value = 1): %d\n",h_A[memsize-1]);
     printf("Vector V_B (original value = 2): %d\n",h_B[memsize-1]);
-    printf("Vector V_C (original value = 3): %d\n", h_C[memsize-1]);
+    printf("Vector V_C (original value = 100): %d\n", h_C[memsize-1]);
     printf("Time (ms): %f\n", milliseconds);
     printf("Bandwith (MB/s): %f\n",mb*1e3/milliseconds);
 
