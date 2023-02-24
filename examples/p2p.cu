@@ -46,8 +46,8 @@ int main(int argc, char **argv) {
     using namespace std;
     // int numGPUs;
 
-    int src;
-    int det;
+    int src=0;
+    int det=1;
     int memsize;
 
     int *h_A, *h_B, *h_C;
@@ -73,8 +73,8 @@ int main(int argc, char **argv) {
     scanf("%d", &memsize);
     // printf("\n");
     
-    src = 0;
-    det = 1;
+    // src = 0;
+    // det = 1;
     // memsize = 1;
 
 
