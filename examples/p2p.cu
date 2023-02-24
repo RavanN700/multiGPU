@@ -71,7 +71,7 @@ int main(int argc, char **argv) {
     // printf("\n");
     // printf("Please enter the Number of Elements: ") ;
     scanf("%d", &memsize);
-    // printf("\n");
+    printf("\n");
     
     // src = 0;
     // det = 1;
