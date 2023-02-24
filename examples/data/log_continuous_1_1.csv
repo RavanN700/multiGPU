@@ -1,11 +1,6 @@
-==40449== NVPROF is profiling process 40449, command: ./p2p
-==40449== Profiling application: ./p2p
-==40449== Profiling result:
-"Type","Time(%)","Time","Calls","Avg","Min","Max","Name"
-,%,us,,us,us,us,
-"GPU activities",100.000000,3.264000,1,3.264000,3.264000,3.264000,"[CUDA memcpy PtoP]"
-"API calls",100.000000,100.509000,1,100.509000,100.509000,100.509000,"cudaMemcpyPeer"
-==40449== Metric result:
-"Device","Invocations","Metric Name","Metric Description","Min","Max","Avg"
-"Tesla P100-SXM2-16GB (0)",1,"nvlink_overhead_data_transmitted (4 instances)","NVLink Overhead Data Transmitted",,,0.113475%,1.000000%,1.000000%,1.000000%
-"Tesla P100-SXM2-16GB (0)",1,"nvlink_overhead_data_received (4 instances)","NVLink Overhead Data Received",,,1.000000%,1.000000%,1.000000%,1.000000%
+==43393== NVPROF is profiling process 43393, command: ./p2p
+==43393== Profiling application: ./p2p
+==43393== Profiling result:
+No kernels were profiled.
+No API activities were profiled.
+No events/metrics were profiled.
