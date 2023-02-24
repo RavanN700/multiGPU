@@ -75,8 +75,8 @@ int main(int argc, char **argv) {
     
     // src = 0;
     // det = 1;
-    memsize = atoi(argv[0]);
-    printf("%d", memsize);
+    memsize = atoi(argv[1]);
+    printf("%d\n", memsize);
 
     size_t size = memsize * sizeof(int);
 
