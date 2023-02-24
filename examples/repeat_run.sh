@@ -1,4 +1,4 @@
-for i in $(seq 1 10000);
+for i in $(seq 1 1000);
 do
     ./p2p_colocated
 done
