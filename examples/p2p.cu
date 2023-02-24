@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
 
 
 
-    cudaGetDeviceCount(&numGPUs); // get number of GPUs
+    // cudaGetDeviceCount(&numGPUs); // get number of GPUs
 
     // printf("Please enter the source GPU: ");
     // scanf("%d", &src);
