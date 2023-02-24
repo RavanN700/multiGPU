@@ -61,7 +61,7 @@ int main(int argc, char **argv) {
 
 
 
-    // cudaGetDeviceCount(&numGPUs); // get number of GPUs
+    cudaGetDeviceCount(&numGPUs); // get number of GPUs
 
     // printf("Please enter the source GPU: ");
     // scanf("%d", &src);
@@ -70,12 +70,12 @@ int main(int argc, char **argv) {
     // scanf("%d", &det);
     // printf("\n");
     // printf("Please enter the Number of Elements: ") ;
-    // scanf("%d", &memsize);
+    scanf("%d", &memsize);
     // printf("\n");
     
     src = 0;
     det = 1;
-    memsize = 1;
+    // memsize = 1;
 
 
     size_t size = memsize * sizeof(int);
