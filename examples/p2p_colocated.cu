@@ -75,7 +75,7 @@ int main(int argc, char **argv) {
     
     src = 0;
     det = 1;
-    memsize = 10000000;
+    memsize = 1000;
 
 
     size_t size = memsize * sizeof(int);
