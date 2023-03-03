@@ -1,4 +1,4 @@
-for i in $(seq 31 45);
+for i in $(seq 46 60);
 do
     nvprof --profile-from-start off --aggregate-mode off --csv --event-collection-mode continuous -m nvlink_total_data_transmitted ./p2p $i
     nvprof --profile-from-start off --aggregate-mode off --csv --event-collection-mode continuous -m nvlink_transmit_throughput ./p2p $i
