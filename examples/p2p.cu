@@ -127,10 +127,10 @@ int main(int argc, char **argv) {
     
 
     // vecadd kernel
-    vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
+    // vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
     // Peer to peer memory copy from device src to device det
-    // cudaMemcpyPeer(d_B, det, d_A, src, size);
+    cudaMemcpyPeer(d_B, det, d_A, src, size);
 
 
     
@@ -146,7 +146,7 @@ int main(int argc, char **argv) {
 
 
     // Copy back to host memory in src GPU
-    cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost); // needed for kernel 
+    // cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost); // needed for kernel 
     cudaMemcpy(h_B, d_B, size, cudaMemcpyDeviceToHost); // test peer2peer memcpy
 
 
@@ -154,7 +154,7 @@ int main(int argc, char **argv) {
     printf("Size of data transfer (MB): %f\n", mb);
     printf("Vector V_A (original value = 1): %d\n",h_A[memsize-1]);
     printf("Vector V_B (original value = 2): %d\n",h_B[memsize-1]);
-    printf("Vector V_C (original value = 100): %d\n", h_C[memsize-1]);
+    // printf("Vector V_C (original value = 100): %d\n", h_C[memsize-1]);
     printf("Time (ms): %f\n", milliseconds);
     printf("Bandwith (MB/s): %f\n",mb*1e3/milliseconds);
 
