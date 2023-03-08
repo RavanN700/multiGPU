@@ -1,0 +1,600 @@
+176
+Size of data transfer (MB): 0.000704
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.052000
+Bandwith (MB/s): 0.000349
+176
+Size of data transfer (MB): 0.000704
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.135000
+Bandwith (MB/s): 0.000349
+176
+Size of data transfer (MB): 0.000704
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.179000
+Bandwith (MB/s): 0.000349
+176
+Size of data transfer (MB): 0.000704
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.988000
+Bandwith (MB/s): 0.000349
+177
+Size of data transfer (MB): 0.000708
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.370000
+Bandwith (MB/s): 0.000351
+177
+Size of data transfer (MB): 0.000708
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.124000
+Bandwith (MB/s): 0.000351
+177
+Size of data transfer (MB): 0.000708
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.211000
+Bandwith (MB/s): 0.000351
+177
+Size of data transfer (MB): 0.000708
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.458000
+Bandwith (MB/s): 0.000351
+178
+Size of data transfer (MB): 0.000712
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.133000
+Bandwith (MB/s): 0.000353
+178
+Size of data transfer (MB): 0.000712
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.095000
+Bandwith (MB/s): 0.000353
+178
+Size of data transfer (MB): 0.000712
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.270000
+Bandwith (MB/s): 0.000353
+178
+Size of data transfer (MB): 0.000712
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.103000
+Bandwith (MB/s): 0.000353
+179
+Size of data transfer (MB): 0.000716
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.432000
+Bandwith (MB/s): 0.000355
+179
+Size of data transfer (MB): 0.000716
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.414000
+Bandwith (MB/s): 0.000355
+179
+Size of data transfer (MB): 0.000716
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2017.070000
+Bandwith (MB/s): 0.000355
+179
+Size of data transfer (MB): 0.000716
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.144000
+Bandwith (MB/s): 0.000355
+180
+Size of data transfer (MB): 0.000720
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.113000
+Bandwith (MB/s): 0.000357
+180
+Size of data transfer (MB): 0.000720
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.908000
+Bandwith (MB/s): 0.000357
+180
+Size of data transfer (MB): 0.000720
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.430000
+Bandwith (MB/s): 0.000357
+180
+Size of data transfer (MB): 0.000720
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.304000
+Bandwith (MB/s): 0.000357
+181
+Size of data transfer (MB): 0.000724
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.299000
+Bandwith (MB/s): 0.000359
+181
+Size of data transfer (MB): 0.000724
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.802000
+Bandwith (MB/s): 0.000359
+181
+Size of data transfer (MB): 0.000724
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.195000
+Bandwith (MB/s): 0.000359
+181
+Size of data transfer (MB): 0.000724
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.350000
+Bandwith (MB/s): 0.000359
+182
+Size of data transfer (MB): 0.000728
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.258000
+Bandwith (MB/s): 0.000361
+182
+Size of data transfer (MB): 0.000728
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.166000
+Bandwith (MB/s): 0.000361
+182
+Size of data transfer (MB): 0.000728
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.179000
+Bandwith (MB/s): 0.000361
+182
+Size of data transfer (MB): 0.000728
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.249000
+Bandwith (MB/s): 0.000361
+183
+Size of data transfer (MB): 0.000732
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.409000
+Bandwith (MB/s): 0.000363
+183
+Size of data transfer (MB): 0.000732
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.351000
+Bandwith (MB/s): 0.000363
+183
+Size of data transfer (MB): 0.000732
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.079000
+Bandwith (MB/s): 0.000363
+183
+Size of data transfer (MB): 0.000732
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.076000
+Bandwith (MB/s): 0.000363
+184
+Size of data transfer (MB): 0.000736
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.031000
+Bandwith (MB/s): 0.000365
+184
+Size of data transfer (MB): 0.000736
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.352000
+Bandwith (MB/s): 0.000365
+184
+Size of data transfer (MB): 0.000736
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.961000
+Bandwith (MB/s): 0.000365
+184
+Size of data transfer (MB): 0.000736
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.279000
+Bandwith (MB/s): 0.000365
+185
+Size of data transfer (MB): 0.000740
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.193000
+Bandwith (MB/s): 0.000367
+185
+Size of data transfer (MB): 0.000740
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.288000
+Bandwith (MB/s): 0.000367
+185
+Size of data transfer (MB): 0.000740
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.105000
+Bandwith (MB/s): 0.000367
+185
+Size of data transfer (MB): 0.000740
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.986000
+Bandwith (MB/s): 0.000367
+186
+Size of data transfer (MB): 0.000744
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.149000
+Bandwith (MB/s): 0.000369
+186
+Size of data transfer (MB): 0.000744
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.438000
+Bandwith (MB/s): 0.000369
+186
+Size of data transfer (MB): 0.000744
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.177000
+Bandwith (MB/s): 0.000369
+186
+Size of data transfer (MB): 0.000744
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.129000
+Bandwith (MB/s): 0.000369
+187
+Size of data transfer (MB): 0.000748
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.724000
+Bandwith (MB/s): 0.000371
+187
+Size of data transfer (MB): 0.000748
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.116000
+Bandwith (MB/s): 0.000371
+187
+Size of data transfer (MB): 0.000748
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.376000
+Bandwith (MB/s): 0.000371
+187
+Size of data transfer (MB): 0.000748
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.986000
+Bandwith (MB/s): 0.000371
+188
+Size of data transfer (MB): 0.000752
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.154000
+Bandwith (MB/s): 0.000373
+188
+Size of data transfer (MB): 0.000752
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.429000
+Bandwith (MB/s): 0.000373
+188
+Size of data transfer (MB): 0.000752
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.008000
+Bandwith (MB/s): 0.000373
+188
+Size of data transfer (MB): 0.000752
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.072000
+Bandwith (MB/s): 0.000373
+189
+Size of data transfer (MB): 0.000756
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.329000
+Bandwith (MB/s): 0.000375
+189
+Size of data transfer (MB): 0.000756
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.887000
+Bandwith (MB/s): 0.000375
+189
+Size of data transfer (MB): 0.000756
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.386000
+Bandwith (MB/s): 0.000375
+189
+Size of data transfer (MB): 0.000756
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.228000
+Bandwith (MB/s): 0.000375
+190
+Size of data transfer (MB): 0.000760
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.360000
+Bandwith (MB/s): 0.000377
+190
+Size of data transfer (MB): 0.000760
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.392000
+Bandwith (MB/s): 0.000377
+190
+Size of data transfer (MB): 0.000760
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.946000
+Bandwith (MB/s): 0.000377
+190
+Size of data transfer (MB): 0.000760
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.265000
+Bandwith (MB/s): 0.000377
+191
+Size of data transfer (MB): 0.000764
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.159000
+Bandwith (MB/s): 0.000379
+191
+Size of data transfer (MB): 0.000764
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.905000
+Bandwith (MB/s): 0.000379
+191
+Size of data transfer (MB): 0.000764
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.078000
+Bandwith (MB/s): 0.000379
+191
+Size of data transfer (MB): 0.000764
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.115000
+Bandwith (MB/s): 0.000379
+192
+Size of data transfer (MB): 0.000768
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.286000
+Bandwith (MB/s): 0.000381
+192
+Size of data transfer (MB): 0.000768
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.383000
+Bandwith (MB/s): 0.000381
+192
+Size of data transfer (MB): 0.000768
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.269000
+Bandwith (MB/s): 0.000381
+192
+Size of data transfer (MB): 0.000768
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.244000
+Bandwith (MB/s): 0.000381
+193
+Size of data transfer (MB): 0.000772
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.078000
+Bandwith (MB/s): 0.000383
+193
+Size of data transfer (MB): 0.000772
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.874000
+Bandwith (MB/s): 0.000383
+193
+Size of data transfer (MB): 0.000772
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.389000
+Bandwith (MB/s): 0.000383
+193
+Size of data transfer (MB): 0.000772
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.155000
+Bandwith (MB/s): 0.000383
+194
+Size of data transfer (MB): 0.000776
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.175000
+Bandwith (MB/s): 0.000385
+194
+Size of data transfer (MB): 0.000776
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.132000
+Bandwith (MB/s): 0.000385
+194
+Size of data transfer (MB): 0.000776
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.354000
+Bandwith (MB/s): 0.000385
+194
+Size of data transfer (MB): 0.000776
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.885000
+Bandwith (MB/s): 0.000385
+195
+Size of data transfer (MB): 0.000780
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.048000
+Bandwith (MB/s): 0.000387
+195
+Size of data transfer (MB): 0.000780
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.020000
+Bandwith (MB/s): 0.000387
+195
+Size of data transfer (MB): 0.000780
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.320000
+Bandwith (MB/s): 0.000387
+195
+Size of data transfer (MB): 0.000780
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.950000
+Bandwith (MB/s): 0.000387
+196
+Size of data transfer (MB): 0.000784
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.308000
+Bandwith (MB/s): 0.000389
+196
+Size of data transfer (MB): 0.000784
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2015.941000
+Bandwith (MB/s): 0.000389
+196
+Size of data transfer (MB): 0.000784
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.396000
+Bandwith (MB/s): 0.000389
+196
+Size of data transfer (MB): 0.000784
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.332000
+Bandwith (MB/s): 0.000389
+197
+Size of data transfer (MB): 0.000788
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.280000
+Bandwith (MB/s): 0.000391
+197
+Size of data transfer (MB): 0.000788
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.328000
+Bandwith (MB/s): 0.000391
+197
+Size of data transfer (MB): 0.000788
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.249000
+Bandwith (MB/s): 0.000391
+197
+Size of data transfer (MB): 0.000788
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.120000
+Bandwith (MB/s): 0.000391
+198
+Size of data transfer (MB): 0.000792
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.159000
+Bandwith (MB/s): 0.000393
+198
+Size of data transfer (MB): 0.000792
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.275000
+Bandwith (MB/s): 0.000393
+198
+Size of data transfer (MB): 0.000792
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.443000
+Bandwith (MB/s): 0.000393
+198
+Size of data transfer (MB): 0.000792
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.044000
+Bandwith (MB/s): 0.000393
+199
+Size of data transfer (MB): 0.000796
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.211000
+Bandwith (MB/s): 0.000395
+199
+Size of data transfer (MB): 0.000796
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.366000
+Bandwith (MB/s): 0.000395
+199
+Size of data transfer (MB): 0.000796
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.337000
+Bandwith (MB/s): 0.000395
+199
+Size of data transfer (MB): 0.000796
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.266000
+Bandwith (MB/s): 0.000395
+200
+Size of data transfer (MB): 0.000800
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.048000
+Bandwith (MB/s): 0.000397
+200
+Size of data transfer (MB): 0.000800
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.057000
+Bandwith (MB/s): 0.000397
+200
+Size of data transfer (MB): 0.000800
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.152000
+Bandwith (MB/s): 0.000397
+200
+Size of data transfer (MB): 0.000800
+Vector V_A (original value = 1): 1
+Vector V_B (original value = 2): 1
+Time (ms): 2016.113000
+Bandwith (MB/s): 0.000397
