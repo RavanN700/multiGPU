@@ -46,8 +46,8 @@ int main(int argc, char **argv) {
     using namespace std;
     // int numGPUs;
 
-    int src;
-    int det;
+    int src=0;
+    int det=1;
     int memsize;
 
     int *h_A, *h_B, *h_C;
@@ -73,10 +73,10 @@ int main(int argc, char **argv) {
     // scanf("%d", &memsize);
     // printf("\n");
     
-    src = 0;
-    det = 1;
-    memsize = 10000;
-
+    // src = 0;
+    // det = 1;
+    memsize = atoi(argv[1]);
+    printf("%d\n", memsize);
 
     size_t size = memsize * sizeof(int);
 
@@ -121,35 +121,32 @@ int main(int argc, char **argv) {
     
 
     // Start profiler // nvprof --profile-from-start off
-    // cudaProfilerStart(); 
+    cudaProfilerStart(); 
     
 
     
 
     // vecadd kernel
-    // vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
+    vecAdd <<<blocksPerGrid, threadsPerBlock>>>(d_A, d_B, d_C, memsize);
 
     // Peer to peer memory copy from device src to device det
-    
-    cudaMemcpyPeer(d_B, det, d_A, src, size);
+    // cudaMemcpyPeer(d_B, det, d_A, src, size);
 
 
     
     // Stop profiler
-    // cudaProfilerStop(); 
+    cudaProfilerStop(); 
 
     // Stop time record
     // cudaEventRecord(stop);
     gettimeofday(&t2, 0);
 
     // cudaEventSynchronize(stop);
-    // double milliseconds = 0;
-    // cudaEventElapsedTime(&milliseconds, start, stop);
     double milliseconds = (1000000.0*(t2.tv_sec-t1.tv_sec) + t2.tv_usec-t1.tv_usec)/1000.0;
 
 
     // Copy back to host memory in src GPU
-    // cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost); // needed for kernel 
+    cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost); // needed for kernel 
     cudaMemcpy(h_B, d_B, size, cudaMemcpyDeviceToHost); // test peer2peer memcpy
 
 
@@ -157,7 +154,7 @@ int main(int argc, char **argv) {
     printf("Size of data transfer (MB): %f\n", mb);
     printf("Vector V_A (original value = 1): %d\n",h_A[memsize-1]);
     printf("Vector V_B (original value = 2): %d\n",h_B[memsize-1]);
-    printf("Vector V_C (original value = 100): %d\n", h_C[memsize-1]);
+    // printf("Vector V_C (original value = 100): %d\n", h_C[memsize-1]);
     printf("Time (ms): %f\n", milliseconds);
     printf("Bandwith (MB/s): %f\n",mb*1e3/milliseconds);
 
